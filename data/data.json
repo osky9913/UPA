@@ -1,0 +1,3148 @@
+{
+    "Epidemiologické charakteristiky": [
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "zakladni-prehled.csv",
+            "dc:title": "COVID-19: Základní přehled",
+            "dc:description": "Stručný náhled na základní epidemiologická data o pandemii COVID-19 v ČR. Datová sada obsahuje aktuální kumulativní počet provedených PCR a antigenních testů (včetně informace za předchozí den), potvrzené případy celkem a ve věkové skupině 65+(včetně informace za předchozí den), aktivní případy, vyléčené, úmrtí, očkování a hopitalizované pacienty.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "COVID-19",
+                "widget",
+                "aktuální situace"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum vytvoření aktualizace."
+                    },
+                    {
+                        "name": "provedene_testy_celkem",
+                        "titles": "provedene_testy_celkem",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet provedených PCR testů na původce onemocnění COVID‑19 za celou ČR (kumulativně od 27. 1. 2020) podle hlášení laboratoří (rychlotesty nejsou do přehledu zařazeny). S ohledem na fakt, že hlášení o provedených testech mají určité zpoždění oproti reálnému stavu, se mohou denní záznamy zpětně mírně měnit právě z důvodu průběžného doplňování."
+                    },
+                    {
+                        "name": "potvrzene_pripady_celkem",
+                        "titles": "potvrzene_pripady_celkem",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet osob dosud pozitivně testovaných na původce onemocnění COVID‑19 (kumulativně od 1. 3. 2020) dle hlášení KHS a dle pozitivních nálezů laboratoří, které jsou určeny pro další šetření. S ohledem na fakt, že u publikovaných dat probíhá validace a průběžné doplňování hlášení, jsou přehledy osob s laboratorně prokázaným onemocněním COVID‑19 dle hlášení KHS a laboratoří uváděny k datu hlášení do systému a historicky se nemění (případné opravy tedy nejsou do již publikovaných výstupů promítnuty)."
+                    },
+                    {
+                        "name": "aktivni_pripady",
+                        "titles": "aktivni_pripady",
+                        "datatype": "integer",
+                        "dc:description": "Počet osob pozitivně testovaných na původce onemocnění COVID‑19, které nebyly k danému datu dosud označeny za vyléčené ani nezemřely."
+                    },
+                    {
+                        "name": "vyleceni",
+                        "titles": "vyleceni",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet osob, které byly pozitivně testovány na přítomnost původce onemocnění COVID‑19 (bez ohledu na klinický průběh nemoci a případně aplikovanou léčbu)."
+                    },
+                    {
+                        "name": "umrti",
+                        "titles": "umrti",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet úmrtí osob s onemocněním COVID‑19 zahrnuje všechna úmrtí osob, které byly pozitivně testovány na COVID‑19 bez ohledu na to, jaké byly příčiny jejich úmrtí, zda k jejichž úmrtí došlo v rámci hospitalizace či mimo ni. S ohledem na fakt, že vykazování úmrtí má určité zpoždění oproti reálnému stavu z důvodu validace a uzavírání případů krajských hygienických stanic, se mohou denní záznamy zpětně měnit právě z důvodu průběžného doplňování."
+                    },
+                    {
+                        "name": "aktualne_hospitalizovani",
+                        "titles": "aktualne_hospitalizovani",
+                        "datatype": "integer",
+                        "dc:description": "Aktuální počet hospitalizovaných osob s laboratorně prokázaným onemocněním COVID‑19 dle průběžného hlášení nemocnic bez ohledu na důvody hospitalizace."
+                    },
+                    {
+                        "name": "provedene_testy_vcerejsi_den",
+                        "titles": "provedene_testy_vcerejsi_den",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet provedených PCR testů (včetně opakovaných testů u stejné osoby a bez rozdílu způsobu úhrady, tedy včetně samoplátců) na původce onemocnění COVID‑19 za celou ČR v předchozím dni."
+                    },
+                    {
+                        "name": "potvrzene_pripady_vcerejsi_den",
+                        "titles": "potvrzene_pripady_vcerejsi_den",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet osob dosud pozitivně testovaných na původce onemocnění COVID‑19 v předchozím dni dle hlášení KHS a dle pozitivních nálezů laboratoří, které jsou určeny pro další šetření."
+                    },
+                    {
+                        "name": "potvrzene_pripady_dnesni_den",
+                        "titles": "potvrzene_pripady_dnesni_den",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet osob dosud pozitivně testovaných na původce onemocnění COVID‑19 v tomto dni dle hlášení KHS a dle pozitivních nálezů laboratoří, které jsou určeny pro další šetření."
+                    },
+                    {
+                        "name": "provedene_testy_vcerejsi_den_datum",
+                        "titles": "provedene_testy_vcerejsi_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum přírůstku provedených testů za poslední uzavřený den."
+                    },
+                    {
+                        "name": "potvrzene_pripady_vcerejsi_den_datum",
+                        "titles": "potvrzene_pripady_vcerejsi_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum přírůstku odhalených pozitivních případů za poslední uzavřený den."
+                    },
+                    {
+                        "name": "potvrzene_pripady_dnesni_den_datum",
+                        "titles": "potvrzene_pripady_dnesni_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum průbežného přírůstku odhalených pozitivních případů za poslední neuzavřený den."
+                    },
+                    {
+                        "name": "provedene_antigenni_testy_celkem",
+                        "titles": "provedene_antigenni_testy_celkem",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet provedených antigenních testů na původce onemocnění COVID-19 za celou ČR. S ohledem na fakt, že hlášení o provedených testech mají určité zpoždění oproti reálnému stavu, se mohou denní záznamy zpětně mírně měnit právě z důvodu průběžného doplňování."
+                    },
+                    {
+                        "name": "provedene_antigenni_testy_vcerejsi_den",
+                        "titles": "provedene_antigenni_testy_vcerejsi_den",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet provedených antigenních testů na původce onemocnění COVID-19 za celou ČR v předchozím dni."
+                    },
+                    {
+                        "name": "provedene_antigenni_testy_vcerejsi_den_datum",
+                        "titles": "provedene_antigenni_testy_vcerejsi_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum přírůstku provedených antigenních testů za poslední uzavřený den."
+                    },
+                    {
+                        "name": "vykazana_ockovani_celkem",
+                        "titles": "vykazana_ockovani_celkem",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet vykázaných očkování proti onemocnění COVID-19 za celou ČR. Data se mohou zpětně mírně měnit z důvodu průběžného doplňování."
+                    },
+                    {
+                        "name": "vykazana_ockovani_vcerejsi_den",
+                        "titles": "vykazana_ockovani_vcerejsi_den",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet vykázaných očkování proti onemocnění COVID-19 za celou ČR v předchozím dni."
+                    },
+                    {
+                        "name": "vykazana_ockovani_vcerejsi_den_datum",
+                        "titles": "vykazana_ockovani_vcerejsi_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum přírůstku vykázaných očkování za poslední uzavřený den."
+                    },
+                    {
+                        "name": "potvrzene_pripady_65_celkem",
+                        "titles": "potvrzene_pripady_65_celkem",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet odhalených pozitivních případů ve věkové kategorii 65+."
+                    },
+                    {
+                        "name": "potvrzene_pripady_65_vcerejsi_den",
+                        "titles": "potvrzene_pripady_65_vcerejsi_den",
+                        "datatype": "integer",
+                        "dc:description": "Počet odhalených pozitivních případů ve věkové kategorii 65+ za poslední uzavřený den."
+                    },
+                    {
+                        "name": "potvrzene_pripady_65_vcerejsi_den_datum",
+                        "titles": "potvrzene_pripady_65_vcerejsi_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum přírůstku odhalených pozitivních případů ve věkové kategorii 65+ za poslední uzavřený den."
+                    },
+                    {
+                        "name": "ockovane_osoby_celkem",
+                        "titles": "ockovane_osoby_celkem",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet vykázaných očkovaných osob s alespoň 1 dávkou proti onemocnění COVID-19 za celou ČR. Data se mohou zpětně mírně měnit z důvodu průběžného doplňování."
+                    },
+                    {
+                        "name": "ockovane_osoby_vcerejsi_den",
+                        "titles": "ockovane_osoby_vcerejsi_den",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet vykázaných očkovaných osob s alespoň 1 dávkou proti onemocnění COVID-19 za celou ČR v předchozím dni."
+                    },
+                    {
+                        "name": "ockovane_osoby_vcerejsi_den_datum",
+                        "titles": "ockovane_osoby_vcerejsi_den_datum",
+                        "datatype": "date",
+                        "dc:description": "Datum přírůstku vykázaných očkovaných osob s alespoň 1 dávkou za poslední uzavřený den."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 08:05",
+            "filename": "zakladni-prehled"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "osoby.csv",
+            "dc:title": "COVID-19: Přehled osob s prokázanou nákazou dle hlášení krajských hygienických stanic (v2)",
+            "dc:description": "Datová sada obsahující základní denní incidenční přehled osob s prokázanou nákazou COVID-19 dle hlášení krajských hygienických stanic (datum hlášení, věk a pohlaví nakažené osoby, KHS, informace o místě a zemi nákazy). Datová sada nahrazuje předchozí verzi dostupnou na adrese https://onemocneni-aktualne.mzcr.cz/api/v1/covid-19/ .",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "prokázaná nákaza",
+                "krajské hygienické stanice"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "vek",
+                        "titles": "vek",
+                        "datatype": "integer"
+                    },
+                    {
+                        "name": "pohlavi",
+                        "titles": "pohlavi",
+                        "datatype": "string"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém byla pozitivní nákaza hlášena krajskou hygienickou stanicí. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    },
+                    {
+                        "name": "nakaza_v_zahranici",
+                        "titles": "nakaza_v_zahranici",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda došlo k nákaze mimo ČR."
+                    },
+                    {
+                        "name": "nakaza_zeme_csu_kod",
+                        "titles": "nakaza_zeme_csu_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor státu v zahraničí, kde došlo k nákaze (dvoumístný kód z číselníku zemí CZEM)."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:41",
+            "filename": "osoby"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "vyleceni.csv",
+            "dc:title": "COVID-19: Přehled vyléčených dle hlášení krajských hygienických stanic",
+            "dc:description": "Datová sada obsahující záznamy o vyléčených po onemocnění COVID‑19 dle hlášení krajských hygienických stanic. S ohledem na fakt, že vykazování vyléčených osob má určité zpoždění oproti reálnému stavu z důvodu validace a uzavírání případů krajských hygienických stanic, se mohou denní záznamy zpětně měnit právě z důvodu průběžného doplňování. Tento přehled je aktualizován vždy jednou týdně ve středu a obsahuje data k předchozí neděli.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "covid-19",
+                "koronavirus",
+                "krajské hygienické stanice",
+                "kraj",
+                "okres",
+                "vyléčení"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-06",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "vek",
+                        "titles": "vek",
+                        "datatype": "integer"
+                    },
+                    {
+                        "name": "pohlavi",
+                        "titles": "pohlavi",
+                        "datatype": "string"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    }
+                ]
+            },
+            "lastModification": "06.10.2021 08:06",
+            "filename": "vyleceni"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "umrti.csv",
+            "dc:title": "COVID-19: Přehled úmrtí dle hlášení krajských hygienických stanic",
+            "dc:description": "Datová sada obsahující záznamy o úmrtích v souvislosti s onemocněním COVID‑19 dle hlášení krajských hygienických stanic. Zahrnuje úmrtí osob, které byly pozitivně testovány na COVID‑19 (metodou PCR) bez ohledu na to, jaké byly příčiny jejich úmrtí, a k jejichž úmrtí došlo v rámci hospitalizace či mimo ni. S ohledem na fakt, že vykazování úmrtí má určité zpoždění oproti reálnému stavu z důvodu validace a uzavírání případů krajských hygienických stanic, se mohou denní záznamy zpětně měnit právě z důvodu průběžného doplňování. Tento přehled je aktualizován vždy jednou týdně ve středu a obsahuje data k předchozí neděli.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "covid-19",
+                "koronavirus",
+                "krajské hygienické stanice",
+                "kraj",
+                "okres",
+                "úmrtí"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-06",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "vek",
+                        "titles": "vek",
+                        "datatype": "integer"
+                    },
+                    {
+                        "name": "pohlavi",
+                        "titles": "pohlavi",
+                        "datatype": "string"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    }
+                ]
+            },
+            "lastModification": "06.10.2021 08:06",
+            "filename": "umrti"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "hospitalizace.csv",
+            "dc:title": "COVID-19: Přehled hospitalizací",
+            "dc:description": "Datová sada obsahující data hospitalizovaných pacientů popisující průběh hospitalizace (aktuální a celkový počet hospitalizovaných, rozdělení podle příznaků, rozdělení podle podpůrných přístrojů, počet úmrtí).",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "hospitalizace"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "pacient_prvni_zaznam",
+                        "titles": "pacient_prvni_zaznam",
+                        "datatype": "integer",
+                        "dc:description": "Počet osob, které byly poprvé hospitalizovány."
+                    },
+                    {
+                        "name": "kum_pacient_prvni_zaznam",
+                        "titles": "kum_pacient_prvni_zaznam",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet hospitalizovaných osob."
+                    },
+                    {
+                        "name": "pocet_hosp",
+                        "titles": "pocet_hosp",
+                        "datatype": "integer",
+                        "dc:description": "Aktuální počet hospitalizovaných osob."
+                    },
+                    {
+                        "name": "stav_bez_priznaku",
+                        "titles": "stav_bez_priznaku",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů bez příznaků na základě subjektivního hodnocení lékaře."
+                    },
+                    {
+                        "name": "stav_lehky",
+                        "titles": "stav_lehky",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů v lehkém stavu na základě subjektivního hodnocení lékaře."
+                    },
+                    {
+                        "name": "stav_stredni",
+                        "titles": "stav_stredni",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů ve středně vážném stavu na základě subjektivního hodnocení lékaře."
+                    },
+                    {
+                        "name": "stav_tezky",
+                        "titles": "stav_tezky",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů v těžkém stavu na základě subjektivního hodnocení lékaře."
+                    },
+                    {
+                        "name": "jip",
+                        "titles": "jip",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů umístěným na jednotce intenzivní péče (JIP)."
+                    },
+                    {
+                        "name": "kyslik",
+                        "titles": "kyslik",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů – O2."
+                    },
+                    {
+                        "name": "hfno",
+                        "titles": "hfno",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů – HFNO (vysokoprůtoková nosní oxygenoterapie)."
+                    },
+                    {
+                        "name": "upv",
+                        "titles": "upv",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů – UPV (umělá plicní ventilace)."
+                    },
+                    {
+                        "name": "ecmo",
+                        "titles": "ecmo",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů – ECMO (mimotělní membránová oxygenace (pokročilá metoda podpory životních funkcí))."
+                    },
+                    {
+                        "name": "tezky_upv_ecmo",
+                        "titles": "tezky_upv_ecmo",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů v těžkém stavu nebo s vysoce intenzivní péčí (UPV, ECMO)."
+                    },
+                    {
+                        "name": "umrti",
+                        "titles": "umrti",
+                        "datatype": "integer",
+                        "dc:description": "Počet pacientů, kteří v daný den zemřeli."
+                    },
+                    {
+                        "name": "kum_umrti",
+                        "titles": "kum_umrti",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet pacientu, kteří zemřeli."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:43",
+            "filename": "hospitalizace"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "nakazeni-vyleceni-umrti-testy.csv",
+            "dc:title": "COVID-19: Celkový (kumulativní) počet osob s prokázanou nákazou dle krajských hygienických stanic včetně laboratoří, počet vyléčených, počet úmrtí a provedených testů (v2)",
+            "dc:description": "Datová sada obsahující kumulativní denní počty osob s prokázaným onemocněním COVID-19 dle hlášení krajských hygienických stanic včetně laboratoří, denní počty vyléčených po onemocnění COVID‑19 dle hlášení krajských hygienických stanic, denní počty úmrtí v souvislosti s onemocněním COVID‑19 dle hlášení krajských hygienických stanic a hospitalizačních úmrtí, a denní počty provedených testů na onemocnění COVID-19 dle hlášení laboratoří. S ohledem na fakt, že vykazování vyléčených osob a úmrtí má určité zpoždění oproti reálnému stavu z důvodu validace a uzavírání případů krajských hygienických stanic, se mohou denní záznamy zpětně měnit právě z důvodu průběžného doplňování. Datová sada nahrazuje předchozí verzi dostupnou na adrese https://onemocneni-aktualne.mzcr.cz/api/v1/covid-19/ .",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "covid-19",
+                "koronavirus",
+                "krajské hygienické stanice",
+                "laboratoře",
+                "prokázaná nákaza",
+                "vyléčení",
+                "úmrtí",
+                "provedené testy"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "kumulativni_pocet_nakazenych",
+                        "titles": "kumulativni_pocet_nakazenych",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet osob s prokázanou nákazou."
+                    },
+                    {
+                        "name": "kumulativni_pocet_vylecenych",
+                        "titles": "kumulativni_pocet_vylecenych",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet vyléčených osob."
+                    },
+                    {
+                        "name": "kumulativni_pocet_umrti",
+                        "titles": "kumulativni_pocet_umrti",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet úmrtí."
+                    },
+                    {
+                        "name": "kumulativni_pocet_testu",
+                        "titles": "kumulativni_pocet_testu",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet provedených PCR testů."
+                    },
+                    {
+                        "name": "kumulativni_pocet_ag_testu",
+                        "titles": "kumulativni_pocet_ag_testu",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet provedených antigenních testů."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_nakazenych",
+                        "titles": "prirustkovy_pocet_nakazenych",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet osob s prokázanou nákazou."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_vylecenych",
+                        "titles": "prirustkovy_pocet_vylecenych",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet vyléčených osob."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_umrti",
+                        "titles": "prirustkovy_pocet_umrti",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet úmrtí."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_provedenych_testu",
+                        "titles": "prirustkovy_pocet_provedenych_testu",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet provedených PCR testů."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_provedenych_ag_testu",
+                        "titles": "prirustkovy_pocet_provedenych_ag_testu",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet provedených antigenních testů."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 08:05",
+            "filename": "nakazeni-vyleceni-umrti-testy"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "kraj-okres-nakazeni-vyleceni-umrti.csv",
+            "dc:title": "COVID-19: Přehled epidemiologické situace dle hlášení krajských hygienických stanic podle okresu",
+            "dc:description": "Datová sada podle krajů a okresů ČR obsahující kumulativní denní počty osob s prokázaným onemocněním COVID-19 dle validovaných hlášení krajských hygienických stanic, kumulativní denní počty vyléčených po onemocnění COVID-19 dle hlášení krajských hygienických stanic a kumulativní denní počty úmrtí v souvislosti s onemocněním COVID-19 dle hlášení krajských hygienických stanic a hospitalizačních úmrtí. S ohledem na fakt, že vykazování vyléčených osob a úmrtí má určité zpoždění oproti reálnému stavu z důvodu validace a uzavírání případů krajských hygienických stanic, se mohou denní záznamy zpětně výrazně měnit právě z důvodu průběžného doplňování. Nedoporučujeme uvádět aktuální počty aktivních případů na základě aktuálních počtů vyléčených osob a úmrtí za poslední dny. Data jsou neúplná a jejich použití má za následek zkreslující výsledky. V souladu s rozhodnutím sekce hlavní hygieničky Ministerstva zdravotnictví ČR budou na webu COVID-19 publikovány celkové počty aktivních případů COVID-19 až zpětně, a to po doplnění a po validaci dat s časovým odstupem 4 týdnů.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "covid-19",
+                "koronavirus",
+                "krajské hygienické stanice",
+                "kraj",
+                "okres",
+                "prokázaná nákaza",
+                "vyléčení",
+                "úmrtí"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1. V případě, že není uvedena žádná hodnota, nebylo možné identifikovat místo bydliště nakažené osoby. Jde o problém se ztotožňováním bydliště v reálném čase u minority případů, kdy není uvedeno bydliště ze šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci."
+                    },
+                    {
+                        "name": "kumulativni_pocet_nakazenych",
+                        "titles": "kumulativni_pocet_nakazenych",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet osob s prokázanou nákazou."
+                    },
+                    {
+                        "name": "kumulativni_pocet_vylecenych",
+                        "titles": "kumulativni_pocet_vylecenych",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet vyléčených osob."
+                    },
+                    {
+                        "name": "kumulativni_pocet_umrti",
+                        "titles": "kumulativni_pocet_umrti",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet úmrtí."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 08:05",
+            "filename": "kraj-okres-nakazeni-vyleceni-umrti"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "orp.csv",
+            "dc:title": "COVID-19: Přehled epidemiologické situace dle hlášení krajských hygienických stanic podle ORP",
+            "dc:description": "Obsahem je komplexní přehled základních epidemiologických parametrů (počty diagnostikovaných osob s COVID-19, počty aktuálně nakažených, hospitalizovaní pacienti) se zaměřením na seniorní zranitelné skupiny obyvatel (kategorie věku 65+, 75+) na geografické úrovni obcí s rozšířenou působností (ORP).",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "prokázaná nákaza",
+                "krajská hygienická stanice",
+                "incidence",
+                "prevalence",
+                "hospitalizace",
+                "obec s rozšířenou působností",
+                "PCR test"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "den",
+                        "titles": "den",
+                        "datatype": "string",
+                        "dc:description": "Označení příslušného dne."
+                    },
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "orp_kod",
+                        "titles": "orp_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód obce s rozšířenou působností dle číselníku ÚZIS ČR (https://pzu-api.uzis.cz/api/orp)."
+                    },
+                    {
+                        "name": "orp_nazev",
+                        "titles": "orp_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název obce s rozšířenou působností."
+                    },
+                    {
+                        "name": "incidence_7",
+                        "titles": "incidence_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet všech nově diagnostikovaných za týden zpětně ode dne uvedeného ve sloupci Datum."
+                    },
+                    {
+                        "name": "incidence_65_7",
+                        "titles": "incidence_65_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných ve věkové skupině 65+ za týden zpětně ode dne uvedeného ve sloupci Datum."
+                    },
+                    {
+                        "name": "incidence_75_7",
+                        "titles": "incidence_75_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných ve věkové skupině 75+ za týden zpětně ode dne uvedeného ve sloupci Datum."
+                    },
+                    {
+                        "name": "prevalence",
+                        "titles": "prevalence",
+                        "datatype": "integer",
+                        "dc:description": "Aktuální počet aktivních případů ve stavu COVID+."
+                    },
+                    {
+                        "name": "prevalence_65",
+                        "titles": "prevalence_65",
+                        "datatype": "integer",
+                        "dc:description": "Aktuální počet aktivních případů ve věkové skupině 65+ ve stavu COVID+."
+                    },
+                    {
+                        "name": "prevalence_75",
+                        "titles": "prevalence_75",
+                        "datatype": "integer",
+                        "dc:description": "Aktuální počet aktivních případů ve věkové skupině 75+ ve stavu COVID+."
+                    },
+                    {
+                        "name": "aktualni_pocet_hospitalizovanych_osob",
+                        "titles": "aktualni_pocet_hospitalizovanych_osob",
+                        "datatype": "integer",
+                        "dc:description": "Aktuální počet hospitalizovaných (dle bydliště v daném ORP)."
+                    },
+                    {
+                        "name": "nove_hosp_7",
+                        "titles": "nove_hosp_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově hospitalizovaných za týden zpětně ode dne uvedeného ve sloupci Datum (dle bydliště v daném ORP)."
+                    },
+                    {
+                        "name": "testy_7",
+                        "titles": "testy_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet provedených PCR testů za týden zpětně ode dne uvedeného ve sloupci Datum (dle bydliště v daném ORP)."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:43",
+            "filename": "orp"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "obce.csv",
+            "dc:title": "COVID-19: Epidemiologická charakteristika obcí",
+            "dc:description": "Obsah datové sady zahrnuje základní epidemiologické parametry (počty nově diagnostikovaných osob s COVID-19, počty aktuálně nakažených) na úrovni obcí ČR.\n\nNa základě informací z některých malých obcí eviduje správce systému ISIN problémy s přiřazením bydliště obyvatel. Jde o chybu ztotožňování bydliště v reálném čase u minority případů, kdy není uvedeno bydliště z šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci. Případy podle všeho patří do velkých měst, a drobné obce byly přiřazeny omylem.\n\nDalším problémem může být přiřazení správného trvalého bydliště k dané obci u pacienta, který avšak v obci nepobývá (pouze je tam přihlášen k pobytu) a jeho diagnóza i léčba probíhá jinde. Správce i provozovatel ISIN děkují vedení obcí za zpětnou vazbu, neboť jinak takové chyby nelze odhalit. Publikování dat na úrovni obcí bylo vedeno snahou o bezbariérový informační servis – tato data jsou nyní ve spolupráci se správou základních registrů zpětně validována. Nejde o chyby velkého rozsahu, nicméně je nutné je dořešit. Pro starosty všech obcí je nově připravený nový internetový dashboard, který umožní rychlou zpětnou kontrolu správnosti.\n",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "krajská hygienická stanice",
+                "incidence",
+                "prevalence",
+                "kraj",
+                "okres",
+                "obec s rozšířenou působností",
+                "obec"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "den",
+                        "titles": "den",
+                        "datatype": "string",
+                        "dc:description": "Označení příslušného dne."
+                    },
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1."
+                    },
+                    {
+                        "name": "okres_nazev",
+                        "titles": "okres_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název okresu."
+                    },
+                    {
+                        "name": "orp_kod",
+                        "titles": "orp_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód obce s rozšířenou působností dle číselníku ÚZIS ČR (https://pzu-api.uzis.cz/api/orp)."
+                    },
+                    {
+                        "name": "orp_nazev",
+                        "titles": "orp_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název obce s rozšířenou působností."
+                    },
+                    {
+                        "name": "obec_kod",
+                        "titles": "obec_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód obce dle číselníku CISOB."
+                    },
+                    {
+                        "name": "obec_nazev",
+                        "titles": "obec_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název obce."
+                    },
+                    {
+                        "name": "nove_pripady",
+                        "titles": "nove_pripady",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných za daný den."
+                    },
+                    {
+                        "name": "aktivni_pripady",
+                        "titles": "aktivni_pripady",
+                        "datatype": "integer",
+                        "dc:description": "Počet osob pozitivně testovaných na původce onemocnění COVID‑19, které nebyly k danému datu dosud označeny za vyléčené ani nezemřely."
+                    },
+                    {
+                        "name": "nove_pripady_65",
+                        "titles": "nove_pripady_65",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově diagnostikovaných za daný den ve věkové skupině 65+."
+                    },
+                    {
+                        "name": "nove_pripady_7_dni",
+                        "titles": "nove_pripady_7_dni",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově diagnostikovaných za předchozích 7 dní."
+                    },
+                    {
+                        "name": "nove_pripady_14_dni",
+                        "titles": "nove_pripady_14_dni",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově diagnostikovaných za předchozích 14 dní."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:45",
+            "filename": "obce"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "mestske-casti.csv",
+            "dc:title": "COVID-19: Epidemiologická charakteristika městských částí hlavního města Prahy",
+            "dc:description": "Obsah datové sady na úrovni městkých části hlavního města Prahy zahrnuje základní epidemiologické parametry (počty diagnostikovaných osob s COVID-19, počty aktuálně nakažených), které umožní průběžně sledovat základní epidemiologické ukazatele a vyhodnocovat trendy na pozadí dat publikovaných pro celou ČR.\n\nNa základě informací z některých malých obcí eviduje správce systému ISIN problémy s přiřazením bydliště obyvatel. Jde o chybu ztotožňování bydliště v reálném čase u minority případů, kdy není uvedeno bydliště z šetření KHS a jsou dostupná pouze data z laboratoří. Bydliště je správně určeno na úrovni kraje a okresu, ale došlo k chybnému přiřazení osob ke konkrétní obci. Případy podle všeho patří do velkých měst, a drobné obce byly přiřazeny omylem.\n\nDalším problémem může být přiřazení správného trvalého bydliště k dané obci u pacienta, který avšak v obci nepobývá (pouze je tam přihlášen k pobytu) a jeho diagnóza i léčba probíhá jinde. Správce i provozovatel ISIN děkují vedení obcí za zpětnou vazbu, neboť jinak takové chyby nelze odhalit. Publikování dat na úrovni obcí bylo vedeno snahou o bezbariérový informační servis – tato data jsou nyní ve spolupráci se správou základních registrů zpětně validována. Nejde o chyby velkého rozsahu, nicméně je nutné je dořešit. Pro starosty všech obcí je nově připravený nový internetový dashboard, který umožní rychlou zpětnou kontrolu správnosti.\n",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "krajská hygienická stanice",
+                "incidence",
+                "prevalence",
+                "kraj",
+                "okres",
+                "obec s rozšířenou působností",
+                "městská část",
+                "hlavní město Praha"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "den",
+                        "titles": "den",
+                        "datatype": "string",
+                        "dc:description": "Označení příslušného dne."
+                    },
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "okres_nuts_kod",
+                        "titles": "okres_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace NUTS 4."
+                    },
+                    {
+                        "name": "orp_kod",
+                        "titles": "orp_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód obce s rozšířenou působností dle číselníku ÚZIS ČR (https://pzu-api.uzis.cz/api/orp)."
+                    },
+                    {
+                        "name": "orp_nazev",
+                        "titles": "orp_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název obce s rozšířenou působností."
+                    },
+                    {
+                        "name": "mc_kod",
+                        "titles": "mc_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód městské části dle číselníku CISMC."
+                    },
+                    {
+                        "name": "nove_pripady",
+                        "titles": "nove_pripady",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných za daný den."
+                    },
+                    {
+                        "name": "aktivni_pripady",
+                        "titles": "aktivni_pripady",
+                        "datatype": "integer",
+                        "dc:description": "Počet osob pozitivně testovaných na původce onemocnění COVID‑19, které nebyly k danému datu dosud označeny za vyléčené ani nezemřely."
+                    },
+                    {
+                        "name": "nove_pripady_65",
+                        "titles": "nove_pripady_65",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově diagnostikovaných za daný den ve věkové skupině 65+."
+                    },
+                    {
+                        "name": "nove_pripady_7_dni",
+                        "titles": "nove_pripady_7_dni",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově diagnostikovaných za předchozích 7 dní."
+                    },
+                    {
+                        "name": "nove_pripady_14_dni",
+                        "titles": "nove_pripady_14_dni",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově diagnostikovaných za předchozích 14 dní."
+                    },
+                    {
+                        "name": "zemreli",
+                        "titles": "zemreli",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově zemřelých za daný den."
+                    },
+                    {
+                        "name": "vyleceni",
+                        "titles": "vyleceni",
+                        "datatype": "integer",
+                        "dc:description": "Počet nově vyléčených za daný den."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:47",
+            "filename": "mestske-casti"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "incidence-7-14-cr.csv",
+            "dc:title": "COVID-19: Přehled osob s prokázanou nákazou dle krajských hygienických stanic včetně laboratoří za 7 a 14 dní za ČR",
+            "dc:description": "Datová sada obsahující počty potvrzených případů za posledních 7 a 14 dní za celou ČR včetně přepočtu na 100 000 obyvatel. Pro přepočet na 100 000 obyvatel je použita otevřená datová sada Obyvatelstvo podle pětiletých věkových skupin a pohlaví v krajích a okresech (https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech).",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "potvrzené případy",
+                "incidence"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "incidence_7",
+                        "titles": "incidence_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 7 dní ode dne uvedeného ve sloupci \"datum\"."
+                    },
+                    {
+                        "name": "incidence_14",
+                        "titles": "incidence_14",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 14 dní ode dne uvedeného ve sloupci \"datum\"."
+                    },
+                    {
+                        "name": "incidence_7_100000",
+                        "titles": "incidence_7_100000",
+                        "datatype": "float",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 7 dní ode dne uvedeného ve sloupci \"datum\", který je přepočtený na 100 000 obyvatel."
+                    },
+                    {
+                        "name": "incidence_14_100000",
+                        "titles": "incidence_14_100000",
+                        "datatype": "float",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 14 dní ode dne uvedeného ve sloupci \"datum\", který je přepočtený na 100 000 obyvatel."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:42",
+            "filename": "incidence-7-14-cr"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "incidence-7-14-kraje.csv",
+            "dc:title": "COVID-19: Přehled osob s prokázanou nákazou dle krajských hygienických stanic včetně laboratoří za 7 a 14 dní podle krajů",
+            "dc:description": "Datová sada obsahující počty potvrzených případů za posledních 7 a 14 dní za kraje ČR včetně přepočtu na 100 000 obyvatel. Pro přepočet na 100 000 obyvatel je použita otevřená datová sada Obyvatelstvo podle pětiletých věkových skupin a pohlaví v krajích a okresech (https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech).",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "potvrzené případy",
+                "incidence"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém byly případy diagnostikovány."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém byly případy diagnostikovány."
+                    },
+                    {
+                        "name": "incidence_7",
+                        "titles": "incidence_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 7 dní ode dne uvedeného ve sloupci \"datum\"."
+                    },
+                    {
+                        "name": "incidence_14",
+                        "titles": "incidence_14",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 14 dní ode dne uvedeného ve sloupci \"datum\"."
+                    },
+                    {
+                        "name": "incidence_7_100000",
+                        "titles": "incidence_7_100000",
+                        "datatype": "float",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 7 dní ode dne uvedeného ve sloupci \"datum\", který je přepočtený na 100 000 obyvatel."
+                    },
+                    {
+                        "name": "incidence_14_100000",
+                        "titles": "incidence_14_100000",
+                        "datatype": "float",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 14 dní ode dne uvedeného ve sloupci \"datum\", který je přepočtený na 100 000 obyvatel."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:42",
+            "filename": "incidence-7-14-kraje"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "incidence-7-14-okresy.csv",
+            "dc:title": "COVID-19: Přehled osob s prokázanou nákazou dle krajských hygienických stanic včetně laboratoří za 7 a 14 dní podle okresů",
+            "dc:description": "Datová sada obsahující počty potvrzených případů za posledních 7 a 14 dní za okresy ČR včetně přepočtu na 100 000 obyvatel. Pro přepočet na 100 000 obyvatel je použita otevřená datová sada Obyvatelstvo podle pětiletých věkových skupin a pohlaví v krajích a okresech (https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech).",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "potvrzené případy",
+                "incidence"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1, ve kterém byly případy diagnostikovány."
+                    },
+                    {
+                        "name": "okres_nazev",
+                        "titles": "okres_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název okresu, ve kterém byly případy diagnostikovány."
+                    },
+                    {
+                        "name": "incidence_7",
+                        "titles": "incidence_7",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 7 dní ode dne uvedeného ve sloupci \"datum\"."
+                    },
+                    {
+                        "name": "incidence_14",
+                        "titles": "incidence_14",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 14 dní ode dne uvedeného ve sloupci \"datum\"."
+                    },
+                    {
+                        "name": "incidence_7_100000",
+                        "titles": "incidence_7_100000",
+                        "datatype": "float",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 7 dní ode dne uvedeného ve sloupci \"datum\", který je přepočtený na 100 000 obyvatel."
+                    },
+                    {
+                        "name": "incidence_14_100000",
+                        "titles": "incidence_14_100000",
+                        "datatype": "float",
+                        "dc:description": "Celkový počet nově diagnostikovaných případů za předchozích 14 dní ode dne uvedeného ve sloupci \"datum\", který je přepočtený na 100 000 obyvatel."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:42",
+            "filename": "incidence-7-14-okresy"
+        }
+    ],
+    "Testování": [
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "testy-pcr-antigenni.csv",
+            "dc:title": "COVID-19: Přehled provedených testů podle typu a indikace",
+            "dc:description": "Datová sada obsahující denní počty provedených testů s rozlišením na PCR testy a antigenní testy na onemocnění COVID-19 dle hlášení laboratoří. Dále jsou v sadě uvedeny počty testů dle indikace (diagnostické indikace, epidemiologické indikace, preventivní a plošné testování, ostatní), pozitivní záchyty dle indikace testu a pozitivní záchyty dle typu testu (symptomy jsou objektivně vyšetřeny u indikovaných osob, v rámci plošného testování jde o vyjádření subjektivního posouzení testovaného). Zdrojem dat je centrální Informační systém infekčních nemocí (ISIN). Primární data byla analyticky zpracována a následně transformována do podoby publikovatelné online týmem ÚZIS ČR.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "PCR testy",
+                "Antigenní testy",
+                "Diagnostické indikace",
+                "Epidemiologické indikace",
+                "Pozitivní záchyty",
+                "Preventivní a plošné testování",
+                "Symptomatické případy",
+                "Asymptomatické případy"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "pocet_PCR_testy",
+                        "titles": "pocet_PCR_testy",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet provedených PCR testů."
+                    },
+                    {
+                        "name": "pocet_AG_testy",
+                        "titles": "pocet_AG_testy",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet provedených antigenních testů."
+                    },
+                    {
+                        "name": "typologie_test_indik_diagnosticka",
+                        "titles": "typologie_test_indik_diagnosticka",
+                        "datatype": "integer",
+                        "dc:description": "Diagnostické indikace."
+                    },
+                    {
+                        "name": "typologie_test_indik_epidemiologicka",
+                        "titles": "typologie_test_indik_epidemiologicka",
+                        "datatype": "integer",
+                        "dc:description": "Epidemiologické indikace."
+                    },
+                    {
+                        "name": "typologie_test_indik_preventivni",
+                        "titles": "typologie_test_indik_preventivni",
+                        "datatype": "integer",
+                        "dc:description": "Preventivní a plošné testování."
+                    },
+                    {
+                        "name": "typologie_test_indik_ostatni",
+                        "titles": "typologie_test_indik_ostatni",
+                        "datatype": "integer",
+                        "dc:description": "Ostatní."
+                    },
+                    {
+                        "name": "incidence_pozitivni",
+                        "titles": "incidence_pozitivni",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle indikace testu celkem."
+                    },
+                    {
+                        "name": "pozit_typologie_test_indik_diagnosticka",
+                        "titles": "pozit_typologie_test_indik_diagnosticka",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle indikace testu: diagnostické indikace."
+                    },
+                    {
+                        "name": "pozit_typologie_test_indik_epidemiologicka",
+                        "titles": "pozit_typologie_test_indik_epidemiologicka",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle indikace testu: epidemiologické indikace."
+                    },
+                    {
+                        "name": "pozit_typologie_test_indik_preventivni",
+                        "titles": "pozit_typologie_test_indik_preventivni",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle indikace testu: preventivní a plošné testy."
+                    },
+                    {
+                        "name": "pozit_typologie_test_indik_ostatni",
+                        "titles": "pozit_typologie_test_indik_ostatni",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle indikace testu: ostatní."
+                    },
+                    {
+                        "name": "PCR_pozit_sympt",
+                        "titles": "PCR_pozit_sympt",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle PCR testu: symptomatické případy."
+                    },
+                    {
+                        "name": "PCR_pozit_asymp",
+                        "titles": "PCR_pozit_asymp",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle PCR testu: asymptomatické případy."
+                    },
+                    {
+                        "name": "AG_pozit_symp",
+                        "titles": "AG_pozit_symp",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle antigenního testu: PCR: symptomatické případy."
+                    },
+                    {
+                        "name": "AG_pozit_asymp_PCR_conf",
+                        "titles": "AG_pozit_asymp_PCR_conf",
+                        "datatype": "integer",
+                        "dc:description": "Pozitivní záchyty dle antigenního testu: asymptomatické případy (konfirmováno PCR)."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:43",
+            "filename": "testy-pcr-antigenni"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "kraj-okres-testy.csv",
+            "dc:title": "COVID-19: Celkový (kumulativní) počet provedených testů podle krajů a okresů ČR",
+            "dc:description": "Datová sada obsahující přírůstkové a kumulativní denní počty provedených PCR testů s korekcí na opakovaně pozitivní (kontrolní) testy, a to bez rozdílu způsobu úhrady (tedy včetně samoplátců), na COVID 19 za celou ČR podle hlášení laboratoří (rychlotesty nejsou do přehledu zařazeny). Tento přehled je k dispozici od 1. srpna 2020 z důvodu úplnosti nahlášených dat jednotlivými laboratořemi na individuální úrovni. V předchozím období existuje riziko neúplnosti těchto individuálních dat a proto do 31. července vycházíme pouze z dat agregovaných, která však neumožňují složitější analytické výpočty.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "testy",
+                "laboratoře",
+                "testy s korekcí na opakovaně pozitivní (kontrolní) testy",
+                "opakované testy",
+                "kraj",
+                "okres"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_testu_okres",
+                        "titles": "prirustkovy_pocet_testu_okres",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet všech provedených testů v daném okrese."
+                    },
+                    {
+                        "name": "kumulativni_pocet_testu_okres",
+                        "titles": "kumulativni_pocet_testu_okres",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet všech provedených testů v daném okrese."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_testu_kraj",
+                        "titles": "prirustkovy_pocet_testu_kraj",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet všech provedených testů v daném kraji."
+                    },
+                    {
+                        "name": "kumulativni_pocet_testu_kraj",
+                        "titles": "kumulativni_pocet_testu_kraj",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet všech provedených testů v daném kraji."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_prvnich_testu_okres",
+                        "titles": "prirustkovy_pocet_prvnich_testu_okres",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet provedených testů s korekcí na opakovaně pozitivní (kontrolní) testy v daném okrese."
+                    },
+                    {
+                        "name": "kumulativni_pocet_prvnich_testu_okres",
+                        "titles": "kumulativni_pocet_prvnich_testu_okres",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet provedených testů s korekcí na opakovaně pozitivní (kontrolní) testy v daném okrese."
+                    },
+                    {
+                        "name": "prirustkovy_pocet_prvnich_testu_kraj",
+                        "titles": "prirustkovy_pocet_prvnich_testu_kraj",
+                        "datatype": "integer",
+                        "dc:description": "Přírůstkový počet provedených testů s korekcí na opakovaně pozitivní (kontrolní) testy v daném kraji."
+                    },
+                    {
+                        "name": "kumulativni_pocet_prvnich_testu_kraj",
+                        "titles": "kumulativni_pocet_prvnich_testu_kraj",
+                        "datatype": "integer",
+                        "dc:description": "Kumulativní počet provedených testů s korekcí na opakovaně pozitivní (kontrolní) testy v daném kraji."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:42",
+            "filename": "kraj-okres-testy"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "prehled-odberovych-mist.csv",
+            "dc:title": "COVID-19: Odběrová místa v ČR",
+            "dc:description": "Datová sada poskytuje seznam odběrových míst v ČR, kde jsou prováděny PCR a antigenní testy na onemocnění COVID-19. Součástí publikovaného seznamu nejsou odběrová místa ve zdravotnických zařízeních, kde jsou prováděny testy před přijetím pacienta v souvislosti s poskytováním neodkladné péče. Mobilní odběrové týmy mají kapacitu pevně nastavenu (na hodnotu 20), protože není možné přesně určit tuto kapacitu.",
+            "dc:source": "COVID Forms Application - https://cfa.uzis.cz/, kontakt: crtit@army.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "odběrová místa",
+                "PCR testy",
+                "antigenní testy"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "odberove_misto_id",
+                        "titles": "odberove_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor odběrového místa."
+                    },
+                    {
+                        "name": "odberove_misto_nazev",
+                        "titles": "odberove_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název odběrového místa."
+                    },
+                    {
+                        "name": "okres_nuts_kod",
+                        "titles": "okres_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": " Identifikátor okresu podle klasifikace NUTS4, kde se očkovací místo nachází."
+                    },
+                    {
+                        "name": "operacni_status",
+                        "titles": "operacni_status",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda je oodběrové místo v provozu (https://registrace.mzcr.cz/)."
+                    },
+                    {
+                        "name": "odberove_misto_adresa",
+                        "titles": "odberove_misto_adresa",
+                        "datatype": "string",
+                        "dc:description": "Adresa odběrového místa."
+                    },
+                    {
+                        "name": "latitude",
+                        "titles": "latitude",
+                        "datatype": "string",
+                        "dc:description": "Souřadnice (zeměpisná šířka) určující polohu odběrového místa."
+                    },
+                    {
+                        "name": "longitude",
+                        "titles": "longitude",
+                        "datatype": "string",
+                        "dc:description": "Souřadnice (zeměpisná délka) určující polohu odběrového místa."
+                    },
+                    {
+                        "name": "testovaci_kapacita",
+                        "titles": "testovaci_kapacita",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet vzorků nezávisle na typu odběru (nasofaryngeální, orofaryngeální nebo antigenní odběr), které je schopno odběrové místo provést za den."
+                    },
+                    {
+                        "name": "nasofaryngealni_odber",
+                        "titles": "nasofaryngealni_odber",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda odběrové místo provádí PCR testy nasofaryngeálně."
+                    },
+                    {
+                        "name": "orofaryngealni_odber",
+                        "titles": "orofaryngealni_odber",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda odběrové místo provádí PCR testy orofaryngeálně."
+                    },
+                    {
+                        "name": "antigenni_odber",
+                        "titles": "antigenni_odber",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda odběrové místo provádí antigenní testy."
+                    },
+                    {
+                        "name": "drive_in",
+                        "titles": "drive_in",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda odběrové místo funguje v tzv. drive-in režimu (pacienti přijíždějí autem a nevystupují)."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:43",
+            "filename": "prehled-odberovych-mist"
+        }
+    ],
+    "Očkování": [
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani.csv",
+            "dc:title": "COVID-19: Přehled vykázaných očkování podle krajů ČR",
+            "dc:description": "Datová sada poskytuje agregovaná data o vykázaných očkováních na úrovni krajů ČR. Každý řádek přehledu popisuje počet vykázaných očkování v daném dni, za věkovou skupinu, s použitím vybrané očkovací látky a ve vybraném kraji. Za jeden den tedy přehled obsahuje maximálně X řádků, kde X = počet krajů (14) x počet věkových skupin (15) x počet druhů očkovacích látek (v okamžik publikace 4) = 840. Data jsou aktualizována k času 20.00 h předchozího dne a mohou se zpětně mírně měnit z důvodu průběžného doplňování.",
+            "dc:source": "Centrální rezervační systém - https://crs.uzis.cz/, kontakt: covid-podpora@nakit.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "očkovací látka",
+                "věková skupina"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, ve kterém byla očkování v daném kraji provedena."
+                    },
+                    {
+                        "name": "vakcina",
+                        "titles": "vakcina",
+                        "datatype": "string",
+                        "dc:description": "Název očkovací látky."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "vekova_skupina",
+                        "titles": "vekova_skupina",
+                        "datatype": "string",
+                        "dc:description": "Rozdělení očkovaných osob podle věku do skupin: 0-17, 18-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70-74, 75-79, 80+, nezařazeno - pokud nelze určit věkovou skupinu."
+                    },
+                    {
+                        "name": "prvnich_davek",
+                        "titles": "prvnich_davek",
+                        "datatype": "integer",
+                        "dc:description": "Počet osob, které v daném kraji a v daném dni obdrželi první dávku dané očkovací látky."
+                    },
+                    {
+                        "name": "druhych_davek",
+                        "titles": "druhych_davek",
+                        "datatype": "integer",
+                        "dc:description": "Počet osob, které v daném kraji a v daném dni obdrželi druhou dávku dané očkovací látky."
+                    },
+                    {
+                        "name": "celkem_davek",
+                        "titles": "celkem_davek",
+                        "datatype": "integer",
+                        "dc:description": "Celkový počet osob, které v daném kraji a v daném dni obdrželi dávku dané očkovací látky (součet prvních a druhých dávek dané očkovací látky)."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:47",
+            "filename": "ockovani"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovaci-mista.csv",
+            "dc:title": "COVID-19: Přehled vykázaných očkování podle očkovacích míst ČR",
+            "dc:description": "Datová sada poskytuje řádková data o vykázaných očkováních na jednotlivých očkovacích místech ČR. Každý řádek přehledu popisuje jedno vykázané očkování v daném dni a věkové skupině, s použitím vybrané očkovací látky, na konkrétním očkovacím místu a ve vybraném kraji.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "očkovací místo",
+                "vakcinace",
+                "očkovací látka",
+                "věková skupina"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, ve kterém byla očkování v daném kraji provedena."
+                    },
+                    {
+                        "name": "vakcina",
+                        "titles": "vakcina",
+                        "datatype": "string",
+                        "dc:description": "Název očkovací látky."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "zarizeni_kod",
+                        "titles": "zarizeni_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód zdravotnického zařízení, ve kterém se nachází očkovací místo (podle číselníku poskytovatelů zdravotních služeb na úrovni jednotlivých zařízení)."
+                    },
+                    {
+                        "name": "zarizeni_nazev",
+                        "titles": "zarizeni_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název zdravotnického zařízení, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "poradi_davky",
+                        "titles": "poradi_davky",
+                        "datatype": "integer",
+                        "dc:description": "Pořadí dávky (první, druhá) danou očkovací látkou."
+                    },
+                    {
+                        "name": "vekova_skupina",
+                        "titles": "vekova_skupina",
+                        "datatype": "string",
+                        "dc:description": "Rozdělení očkovaných osob podle věku do skupin: 0-17, 18-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70-74, 75-79, 80+, nezařazeno - pokud nelze určit věkovou skupinu."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:49",
+            "filename": "ockovaci-mista"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "prehled-ockovacich-mist.csv",
+            "dc:title": "COVID-19: Očkovací místa v ČR",
+            "dc:description": "Datová sada poskytuje seznam veřejných očkovacích míst v ČR, kde jsou podávány očkovací látky proti onemocnění COVID-19.",
+            "dc:source": "COVID Forms Application - https://cfa.uzis.cz/, kontakt: crtit@army.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "očkovací místo"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "ockovaci_misto_id",
+                        "titles": "ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_nazev",
+                        "titles": "ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název očkovacího místa."
+                    },
+                    {
+                        "name": "okres_nuts_kod",
+                        "titles": "okres_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": " Identifikátor okresu podle klasifikace NUTS4, kde se očkovací místo nachází."
+                    },
+                    {
+                        "name": "operacni_status",
+                        "titles": "operacni_status",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda je očkovací místo veřejné. V datové sadě jsou uveřejněna pouze veřejná očkovací místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_adresa",
+                        "titles": "ockovaci_misto_adresa",
+                        "datatype": "string",
+                        "dc:description": "Adresa očkovacího místa."
+                    },
+                    {
+                        "name": "latitude",
+                        "titles": "latitude",
+                        "datatype": "string",
+                        "dc:description": "Souřadnice (zeměpisná šířka) určující polohu očkovacího místa."
+                    },
+                    {
+                        "name": "longitude",
+                        "titles": "longitude",
+                        "datatype": "string",
+                        "dc:description": "Souřadnice (zeměpisná délka) určující polohu očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_typ",
+                        "titles": "ockovaci_misto_typ",
+                        "datatype": "string",
+                        "dc:description": "Typ očkovacího místa (OČM: očkovací místo, VOČM: velkokapacitní očkovací místo, DOČM: distribuční očkovací místo)"
+                    },
+                    {
+                        "name": "nrpzs_kod",
+                        "titles": "nrpzs_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód zdravotnického zařízení podle Národního registru poskytovatelů zdravotních služeb. Jedno zdravotnické zařízení může disponovat jedním nebo více očkovacími místy."
+                    },
+                    {
+                        "name": "minimalni_kapacita",
+                        "titles": "minimalni_kapacita",
+                        "datatype": "integer",
+                        "dc:description": "Minimalní kapacita očkovaných osob za jeden den."
+                    },
+                    {
+                        "name": "bezbarierovy_pristup",
+                        "titles": "bezbarierovy_pristup",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda očkovací místo disponuje bezbarierovým přístupem."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:56",
+            "filename": "prehled-ockovacich-mist"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-spotreba.csv",
+            "dc:title": "COVID-19: Přehled spotřeby podle očkovacích míst ČR",
+            "dc:description": "Datová sada obsahuje přehled spotřeby očkovacích látek (použité a znehodnocené ampulky) proti onemocnění COVID-19 v očkovacích místech v ČR. Každý záznam (řádek) datové sady udává počet použitých a znehodnocených ampulek dané očkovací látky na daném očkovacím místě v daný den.",
+            "dc:source": "COVID Forms Application - https://cfa.uzis.cz/, kontakt: crtit@army.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "očkovací místo",
+                "použité ampulky",
+                "znehodnocené ampulky"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Den, kdy byly spotřebovány ampulky dané očkovací látky"
+                    },
+                    {
+                        "name": "ockovaci_misto_id",
+                        "titles": "ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_nazev",
+                        "titles": "ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název očkovacího místa"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "ockovaci_latka",
+                        "titles": "ockovaci_latka",
+                        "datatype": "string",
+                        "dc:description": "Název spotřebované očkovací látky."
+                    },
+                    {
+                        "name": "vyrobce",
+                        "titles": "vyrobce",
+                        "datatype": "string",
+                        "dc:description": "Název výrobce spotřebované očkovací látky."
+                    },
+                    {
+                        "name": "pouzite_ampulky",
+                        "titles": "pouzite_ampulky",
+                        "datatype": "integer",
+                        "dc:description": "Počet ampulek očkovací látky, které byly použity."
+                    },
+                    {
+                        "name": "znehodnocene_ampulky",
+                        "titles": "znehodnocene_ampulky",
+                        "datatype": "integer",
+                        "dc:description": "Počet ampulek očkovací látky, které byly znehodnoceny."
+                    },
+                    {
+                        "name": "pouzite_davky",
+                        "titles": "pouzite_davky",
+                        "datatype": "integer",
+                        "dc:description": "Počet použitých dávek očkovací látky (přepočet dávek v jedné ampulce podle informací výrobce): Comirnaty (Pfizer) = 6 dávek/ampulka, COVID-19 Vaccine AstraZeneca (AstraZeneca) = 10 dávek/ampulka, Spikevax (Moderna) = 10 dávek/ampulka."
+                    },
+                    {
+                        "name": "znehodnocene_davky",
+                        "titles": "znehodnocene_davky",
+                        "datatype": "integer",
+                        "dc:description": "Počet znehodnocených dávek očkovací látky (přepočet dávek v jedné ampulce podle informací výrobce): Comirnaty (Pfizer) = 6 dávek/ampulka, COVID-19 Vaccine AstraZeneca (AstraZeneca) = 10 dávek/ampulka, Spikevax (Moderna) = 10 dávek/ampulka."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:56",
+            "filename": "ockovani-spotreba"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-distribuce.csv",
+            "dc:title": "COVID-19: Přehled distribuce očkovacích látek v ČR",
+            "dc:description": "Datová sada obsahuje přehled distribuce očkovacích látek proti onemocnění COVID-19 do očkovacích míst v ČR. Každý záznam (řádek) datové sady udává počet ampulek dané očkovací látky, která byla daným očkovacím místem v daný den přijata nebo vydána.",
+            "dc:source": "COVID Forms Application - https://cfa.uzis.cz/, kontakt: crtit@army.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "distribuce očkovacích látek"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Den, kdy byla provedena distribuce na dané očkovací místo."
+                    },
+                    {
+                        "name": "ockovaci_misto_id",
+                        "titles": "ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_nazev",
+                        "titles": "ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název očkovacího místa."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "cilove_ockovaci_misto_id",
+                        "titles": "cilove_ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Kód cílového očkovacího místa, kam je očkovací látka distribuována."
+                    },
+                    {
+                        "name": "cilove_ockovaci_misto_nazev",
+                        "titles": "cilove_ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název cílového očkovacího místa, kam je očkovací látka distribuována."
+                    },
+                    {
+                        "name": "cilovy_kraj_kod",
+                        "titles": "cilovy_kraj_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo, kam je očkovací látka distribuována."
+                    },
+                    {
+                        "name": "cilovy_kraj_nazev",
+                        "titles": "cilovy_kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo, kam je očkovací látka distribuována."
+                    },
+                    {
+                        "name": "ockovaci_latka",
+                        "titles": "ockovaci_latka",
+                        "datatype": "string",
+                        "dc:description": "Název distribuované očkovací látky."
+                    },
+                    {
+                        "name": "vyrobce",
+                        "titles": "vyrobce",
+                        "datatype": "string",
+                        "dc:description": "Název výrobce distribuované očkovací látky."
+                    },
+                    {
+                        "name": "akce",
+                        "titles": "akce",
+                        "datatype": "string",
+                        "dc:description": "Příznak, zda se jedná v rámci distribučního procesu o příjem nebo výdej očkovací látky. Příznak „příjem“ označuje, že daná očkovací látka byla dodána na dané očkovací místo z centrálního skladu (cílové očkovací místo není vyplněno). Příznak „výdej“ označuje, že daná očkovací látka byla dále distribuována očkovacím místem na cílové očkovací místo (cílové očkovací místo je vyplněno, v případě nevyplnění cílové očkovací místo není evidováno v centrálním systému – např. praktický lékař)."
+                    },
+                    {
+                        "name": "pocet_ampulek",
+                        "titles": "pocet_ampulek",
+                        "datatype": "integer",
+                        "dc:description": "Počet ampulek distribuované očkovací látky. Počty dávek očkovací látky podle výrobce: Comirnaty (Pfizer) = 6 dávek/ampulka, COVID-19 Vaccine AstraZeneca (AstraZeneca) = 10 dávek/ampulka, Spikevax (Moderna) = 10 dávek/ampulka, COVID-19 Vaccine Janssen (Janssen) = 10 dávek/ampulka."
+                    },
+                    {
+                        "name": "pocet_davek",
+                        "titles": "pocet_davek",
+                        "datatype": "integer",
+                        "dc:description": "Počet dávek distribuované očkovací látky (přepočet dávek v jedné ampulce podle informací výrobce): Comirnaty (Pfizer) = 6 dávek/ampulka, COVID-19 Vaccine AstraZeneca (AstraZeneca) = 10 dávek/ampulka, Spikevax (Moderna) = 10 dávek/ampulka, COVID-19 Vaccine Janssen (Janssen) = 10 dávek/ampulka."
+                    },
+                    {
+                        "name": "distribuce_id",
+                        "titles": "distribuce_id",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor distribučního záznamu, který umožňuje sprárovat příjmy a výdaje očkovacíh látek s datovou sadou o distribuci z centrálního skladu."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:57",
+            "filename": "ockovani-distribuce"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-distribuce-sklad.csv",
+            "dc:title": "COVID-19: Přehled distribuce očkovacích látek v ČR z centrálního skladu",
+            "dc:description": "Datová sada obsahuje přehled distribuce očkovacích látek proti onemocnění COVID-19 v rámci centrálního skladu (příjem na centrální skladu a výdej do očkovacích míst v ČR). Každý záznam (řádek) datové sady udává počet ampulek dané očkovací látky, která byla daným očkovacím místem v daný den přijata nebo vydána.",
+            "dc:source": "COVID Forms Application - https://cfa.uzis.cz/, kontakt: crtit@army.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "distribuce očkovacích látek"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, kdy byla akce (distribuční záznam) uživatelem zadána do systému."
+                    },
+                    {
+                        "name": "akce",
+                        "titles": "akce",
+                        "datatype": "string",
+                        "dc:description": "Příznak, zda se jedná o příjem na sklad (objednané nebo již přijaté dodávky na centrálním skladě, příznak vždy neznamená, že se jedná o naskladněnou dodávku, může jít o dodávku objednanou) nebo výdej z centrálního skladu na poskytovatele zdravotních služeb (dle Národního registru poskytovatelů zdravotních služeb - NRPZS), případně je možné specifikovat přímo očkovací místo. Atribut nrpzs_kod a nrpzs_nazev jsou při výdeji povinné, atributy ockovaci_misto_id a ockovaci_misto_nazev jsou povinné pouze v případě, pokud je daný poskytovatel současně očkovacím místem."
+                    },
+                    {
+                        "name": "vyrobce",
+                        "titles": "vyrobce",
+                        "datatype": "string",
+                        "dc:description": "Název výrobce distribuované očkovací látky."
+                    },
+                    {
+                        "name": "pocet_ampulek",
+                        "titles": "pocet_ampulek",
+                        "datatype": "integer",
+                        "dc:description": "Počet ampulek, které byly součástí akce (distribučního záznamu), tedy příjem nebo výdej (Comirnaty (Pfizer) = 6 dávek / ampulka, VAXZEVRIA = 10 dávek / ampulka, Spikevax (Moderna) = 10 dávek / ampulka, COVID-19 Vaccine Janssen = 5 dávek / ampulka)."
+                    },
+                    {
+                        "name": "nrpzs_kod",
+                        "titles": "nrpzs_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor poskytovatele zdravotních služeb dle registru NRPZS."
+                    },
+                    {
+                        "name": "nrpzs_nazev",
+                        "titles": "nrpzs_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název poskytovatele zdravotních služeb dle registru NRPZS."
+                    },
+                    {
+                        "name": "nrpzs_kraj_nazev",
+                        "titles": "nrpzs_kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje pro sídlo poskytovatele zdravotních služeb dle registru NRPZS."
+                    },
+                    {
+                        "name": "ockovaci_misto_id",
+                        "titles": "ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_nazev",
+                        "titles": "ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název očkovacího místa."
+                    },
+                    {
+                        "name": "distribuce_id",
+                        "titles": "distribuce_id",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor akce (distribučního záznamu), který umožňuje sprárování s datovou sadou o distribuci očkovacích látek mezi očkovacími místy."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:57",
+            "filename": "ockovani-distribuce-sklad"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-registrace.csv",
+            "dc:title": "COVID-19: Přehled registrací podle očkovacích míst ČR",
+            "dc:description": "Datová sada poskytuje přehled vytvořených registrací v centrálním rezervačním systému na očkování proti onemocnění COVID-19 (https://registrace.mzcr.cz/). Záznamy (řádky) datové sady popisují jednotlivé anonymizované registrace, které byly vytvořeny na dané očkovací místo v daný den. Do datové sady spadají také osoby, které již byly očkovány. Registrovaná osoba je definována tak, že spadá do jedné s následujících skupin: (i) osoba je registrovaná a čeká na přidělení možnosti výběru termínu očkování, (ii) osoba obdržela možnost výběru termínu očkování, (iii) osoba provedla výběr termínu a má tedy rezervaci.\n\nPopis procesu rezervace a registrace: (1) Osoba se registruje v centrálním rezervačním systému na očkování. (2) Probíhá proces ztotožnění proti centrálnímu registru obyvatel. (3) Po ověření totožnosti čeká osoba na přidělení možnosti výběru termínu (stav před závorou). (4) Po přidělení možnosti výběru termínu si osoba vybírá vhodný termín (stav za závorou). (5) Po výběru termínu má daná osoba provedenu rezervaci termínu na očkování. (6) Po provedení očkování zůstává záznam v datové sadě s blokovanou registrací (zablokovano = ANO) a současně je uveden důvod blokace (blokace_duvod = Ztotožněn, ale již vakcinován).\n",
+            "dc:source": "Centrální rezervační systém - https://crs.uzis.cz/, kontakt: covid-podpora@nakit.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "očkovací místo",
+                "vakcinace",
+                "registrace"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Den, kdy byla registrace v centrálním registračním systému na očkování proti onemocnění COVID-19 vytvořena."
+                    },
+                    {
+                        "name": "ockovaci_misto_id",
+                        "titles": "ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_nazev",
+                        "titles": "ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název očkovacího místa."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "vekova_skupina",
+                        "titles": "vekova_skupina",
+                        "datatype": "string",
+                        "dc:description": "Věková skupina, do které spadá uživatel vytvářející registraci na očkování proti onemocnění COVID-19."
+                    },
+                    {
+                        "name": "povolani",
+                        "titles": "povolani",
+                        "datatype": "string",
+                        "dc:description": "Povolání uživatele vytvářejícího registraci na očkování proti onemocnění COVID-19 podle Národního registru zdravotnických pracovníků."
+                    },
+                    {
+                        "name": "stat",
+                        "titles": "stat",
+                        "datatype": "string",
+                        "dc:description": "Stát, ze kterého je uživatel vytvářející registraci na očkování proti onemocnění COVID-19."
+                    },
+                    {
+                        "name": "rezervace",
+                        "titles": "rezervace",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda uživatel již obdržel rezervaci termínu na očkování proti onemocnění COVID-19."
+                    },
+                    {
+                        "name": "datum_rezervace",
+                        "titles": "datum_rezervace",
+                        "datatype": "date",
+                        "dc:description": "Datum rezervace na očkování proti onemocnění COVID-19."
+                    },
+                    {
+                        "name": "zavora_status",
+                        "titles": "zavora_status",
+                        "datatype": "string",
+                        "dc:description": "Určení, v jakém stavu se nachází registrace dané osoby: 1. stav „před závorou“ = osoba je registrovaná v systému a čeká na přidělení možnosti výběru termínu na očkování; 2. stav „za závorou“ = osoba je registrovaná v systému a má možnost výběru termínu na očkování; 3. stav „zablokován“ = osoba byla zablokována; 4. stav „vrácen před závoru“ = osoba měla možnost výběru termínu, ale nevyužila ji"
+                    },
+                    {
+                        "name": "prioritni_skupina",
+                        "titles": "prioritni_skupina",
+                        "datatype": "string",
+                        "dc:description": "Určení, do jaké prioritní skupiny byla osoba přiřazena (u jednoho záznamu je právě jedna prioritní skupina)."
+                    },
+                    {
+                        "name": "zablokovano",
+                        "titles": "zablokovano",
+                        "datatype": "boolean",
+                        "dc:description": "Stav, zda byla registrace zablokována."
+                    },
+                    {
+                        "name": "duvod_blokace",
+                        "titles": "duvod_blokace",
+                        "datatype": "string",
+                        "dc:description": "Zdůvodnění, proč byla očkovaná osoba zablokována. 1. Vytvoření novější registrace (Procedura při vytváření registrace) - V okamžiku, kdy je vytvářena nová registrace, je předchozí registrace se stejným identifikátorem zablokována, pokud u ní není rezervace. 2. Existence předchozí registrace s rezervací (Procedura při vytváření registrace) - V okamžiku, kdy je vytvářena nová registrace, a je nalezena předchozí nezablokovaná registrace se stejným identifikátorem s platnou rezervací, je nově vytvářená registrace zablokovaná. 3. 5x špatně zadané PIN2 (Aplikační rozhraní) - Pokud uživatel při pokusu o vstup zadá 5x špatné PIN 2, je registrace zablokována. 4. Již existuje rezervace (Aplikační rozhraní) - Po vytvoření rezervace je registrace zablokována. V případě zrušení rezervace bude registrace odblokována. 5. Vyřazení ze hry (Závora) - Při pasivním chování uživatele, kterému bylo umožněno vybrat si termín očkování (stav „za závorou“, jsou zasílány SMS notifikace pro připomenutí. Pokud si uživatel ani po zaslání 9 notifikací nevybere termín, je automaticky zablokován. 6. Registrace nebyla ztotožněna (Synchronizace s centrálními registry) - V případě, že není registrace ztotožněna. 7. Ztotožněn, ale již vakcinován (Synchronizace s centrálními registry) - V případě, že osoba v registraci byla ztotožněna, ale již u ní byla zahájena vakcinace. 8. Na žádost (Ruční administrace) - Pokud si uživatel v detailu registrace registraci zruší/vynuluje nebo změní své údaje. 9. Nalezení pozitivního PCR testu na COVID-19 (Procedura při kontrole COVID-19 pozitiv) - Při ztotožňování a následně 1x denně je kontrolováno, zda nemá registrovaná osoba PCR test na COVID-19 pozitivní v posledních 90 dnech. Pokud ano, je dočasně zablokována."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:59",
+            "filename": "ockovani-registrace"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-rezervace.csv",
+            "dc:title": "COVID-19: Přehled rezervací podle očkovacích míst ČR",
+            "dc:description": "Datová sada poskytuje přehled volné a maximální kapacity očkovacích míst v jednotlivých dnech podle informací z centrálního rezervačního systému na očkování proti onemocnění COVID-19 (https://reservatic.com/ockovani). Každý záznam (řádek) datové sady udává volnou a maximální kapacitu daného očkovacího místa v daný den.",
+            "dc:source": "Centrální rezervační systém - https://crs.uzis.cz/, kontakt: covid-podpora@nakit.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "očkovací místo",
+                "vakcinace",
+                "rezervace",
+                "volná kapacita",
+                "maximální kapacita"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, ke kterému se vztahují volné a maximální kapacity očkovacího místa podle centrálního registračnímu systému na očkování proti onemocnění COVID-19."
+                    },
+                    {
+                        "name": "ockovaci_misto_id",
+                        "titles": "ockovaci_misto_id",
+                        "datatype": "string",
+                        "dc:description": "Jednoznačný identifikátor očkovacího místa."
+                    },
+                    {
+                        "name": "ockovaci_misto_nazev",
+                        "titles": "ockovaci_misto_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název očkovacího místa"
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "volna_kapacita",
+                        "titles": "volna_kapacita",
+                        "datatype": "integer",
+                        "dc:description": "Volná kapacita očkovacího místa v daný den."
+                    },
+                    {
+                        "name": "maximalni_kapacita",
+                        "titles": "maximalni_kapacita",
+                        "datatype": "integer",
+                        "dc:description": "Maximální kapacita očkovacího místa v daný den."
+                    },
+                    {
+                        "name": "kalendar_ockovani",
+                        "titles": "kalendar_ockovani",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor, zda se jedná o rezervaci na první dávku (hodnota V1), druhou dávku (hodnota V2) nebo jde o přednostní rezervaci (např. lékařů) (hodnota VX)."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 08:04",
+            "filename": "ockovani-rezervace"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-profese.csv",
+            "dc:title": "COVID-19: Přehled vykázaných očkování podle profesí (očkovací místo, bydliště očkovaného)",
+            "dc:description": "Datová sada poskytuje řádková data o vykázaných očkováních na jednotlivých očkovacích místech ČR. Každý řádek přehledu popisuje jedno vykázané očkování v daném dni a indikační skupině profese, s použitím dané dávky očkovací látky, na konkrétním očkovacím místu a ve vybraném kraji.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "očkovací místo",
+                "vakcinace",
+                "očkovací látka",
+                "indikační skupina",
+                "profese"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, ve kterém byla očkování v daném kraji provedena."
+                    },
+                    {
+                        "name": "vakcina",
+                        "titles": "vakcina",
+                        "datatype": "string",
+                        "dc:description": "Název očkovací látky."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "zarizeni_kod",
+                        "titles": "zarizeni_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód zdravotnického zařízení, ve kterém se nachází očkovací místo (podle číselníku poskytovatelů zdravotních služeb na úrovni jednotlivých zařízení)."
+                    },
+                    {
+                        "name": "zarizeni_nazev",
+                        "titles": "zarizeni_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název zdravotnického zařízení, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "poradi_davky",
+                        "titles": "poradi_davky",
+                        "datatype": "integer",
+                        "dc:description": "Pořadí dávky (první, druhá) danou očkovací látkou."
+                    },
+                    {
+                        "name": "indikace_zdravotnik",
+                        "titles": "indikace_zdravotnik",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi zdravotnické pracovníky (zejména nemocnice, ZZS, primární ambulantní péče, farmaceuti, laboratoře vyšetřující COVID-19, zdravotníci v sociálních službách) nebo do oblasti ochrany veřejného zdraví."
+                    },
+                    {
+                        "name": "indikace_socialni_sluzby",
+                        "titles": "indikace_socialni_sluzby",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi pracovníky nebo klienty v sociálních službách."
+                    },
+                    {
+                        "name": "indikace_ostatni",
+                        "titles": "indikace_ostatni",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi pracovníky kritické infrastruktury, které zahrnují integrovaný záchranný systém, pracovníky energetiky, vládu a krizové štáby (osoba není začleněna v indikačních skupinách zdravotník nebo sociální služby)."
+                    },
+                    {
+                        "name": "indikace_pedagog",
+                        "titles": "indikace_pedagog",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi pedagogické pracovníky."
+                    },
+                    {
+                        "name": "indikace_skolstvi_ostatni",
+                        "titles": "indikace_skolstvi_ostatni",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi ostatní pracovníky ve školství."
+                    },
+                    {
+                        "name": "indikace_bezpecnostni_infrastruktura",
+                        "titles": "indikace_bezpecnostni_infrastruktura",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi zaměstnance Ministerstva obrany nebo bezpečnostní sbory."
+                    },
+                    {
+                        "name": "indikace_chronicke_onemocneni",
+                        "titles": "indikace_chronicke_onemocneni",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda očkovaná osoba spadá mezi chronicky nemocné (hematoonkologické onemocnění, onkologické onemocnění (solidní nádory), závažné akutní nebo dlouhodobé onemocnění srdce, závažné dlouhodobé onemocnění plic, diabetes mellitus, obezita, závažné dlouhodobé onemocnění ledvin, závažné dlouhodobé onemocnění jater, stav po transplantaci nebo na čekací listině, hypertenze, závažné neurologické nebo neuromuskulární onemocnění, vrozený nebo získaný kognitivní deficit, vzácné genetické onemocnění, závažné oslabení imunitního systému, jiné závažné onemocnění)."
+                    },
+                    {
+                        "name": "vekova_skupina",
+                        "titles": "vekova_skupina",
+                        "datatype": "string",
+                        "dc:description": "Rozdělení očkovaných osob podle věku do skupin."
+                    },
+                    {
+                        "name": "orp_bydliste",
+                        "titles": "orp_bydliste",
+                        "datatype": "string",
+                        "dc:description": "Bydliště (na úrovni názvu obce s rozšířenou působností) očkované osoby."
+                    },
+                    {
+                        "name": "orp_bydliste_kod",
+                        "titles": "orp_bydliste_kod",
+                        "datatype": "integer",
+                        "dc:description": "Bydliště (na úrovni kódu obce s rozšířenou působností) podle číselníku ÚZIS ČR (https://pzu-api.uzis.cz/api/orp) očkované osoby."
+                    },
+                    {
+                        "name": "prioritni_skupina_kod",
+                        "titles": "prioritni_skupina_kod",
+                        "datatype": "integer",
+                        "dc:description": "Rozdělení očkovaných osob do prioritních skupin na základě prioritizačního systému Ministerstvem zdravotnictví ČR, které určuje na základě věku, zdravotní anamnézy a profese časový harmonogram očkování. Každá osoba spadá právě do jedné prioritní skupiny. Číselník prioritních skupin je dostupný na adrese https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/prioritni-skupiny.csv ."
+                    },
+                    {
+                        "name": "pohlavi",
+                        "titles": "pohlavi",
+                        "datatype": "string",
+                        "dc:description": "V případě neuvedení pohlaví u vykázaného očkování se jedná o cizince, u kterého není možné prostřednictvím centrálních registrů pohlaví identifikovat."
+                    },
+                    {
+                        "name": "zrizovatel_kod",
+                        "titles": "zrizovatel_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód zřizovatele očkovacího místa."
+                    },
+                    {
+                        "name": "zrizovatel_nazev",
+                        "titles": "zrizovatel_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název zřizovatele očkovacího místa."
+                    },
+                    {
+                        "name": "vakcina_kod",
+                        "titles": "vakcina_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód očkovací látky podle klasifikace ÚZIS ČR."
+                    },
+                    {
+                        "name": "ukoncujici_davka",
+                        "titles": "ukoncujici_davka",
+                        "datatype": "boolean",
+                        "dc:description": "Určení, zda osoba, které odpovídá vykázané očkování (bez ohledu na pořadí dávky), obdržela ukončující dávku. Prostřednictvím tohoto příznaku je možné rozlišit ty osoby, které prozatím nemají ukončené očkování."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 11:32",
+            "filename": "ockovani-profese"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-demografie.csv",
+            "dc:title": "COVID-19: Demografický přehled vykázaných očkování v čase",
+            "dc:description": "Datová sada poskytuje řádková data o vykázaných očkováních v ČR. Každý řádek přehledu popisuje množství vykázaných očkování v daném dni s použitím dané dávky očkovací látky u konkrétního pohlaví a v konkrétní věkové skupině.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "očkovací látka"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, ve kterém byla očkování v daném kraji provedena."
+                    },
+                    {
+                        "name": "vakcina",
+                        "titles": "vakcina",
+                        "datatype": "string",
+                        "dc:description": "Název očkovací látky."
+                    },
+                    {
+                        "name": "vakcina_kod",
+                        "titles": "vakcina_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód očkovací látky podle klasifikace ÚZIS ČR."
+                    },
+                    {
+                        "name": "poradi_davky",
+                        "titles": "poradi_davky",
+                        "datatype": "integer",
+                        "dc:description": "Pořadí dávky (první, druhá) danou očkovací látkou."
+                    },
+                    {
+                        "name": "vekova_skupina",
+                        "titles": "vekova_skupina",
+                        "datatype": "string",
+                        "dc:description": "Rozdělení očkovaných osob podle věku do skupin."
+                    },
+                    {
+                        "name": "pohlavi",
+                        "titles": "pohlavi",
+                        "datatype": "string",
+                        "dc:description": "V případě neuvedení pohlaví u vykázaného očkování se jedná o cizince, u kterého není možné prostřednictvím centrálních registrů pohlaví identifikovat."
+                    },
+                    {
+                        "name": "pocet_davek",
+                        "titles": "pocet_davek",
+                        "datatype": "integer",
+                        "dc:description": "Počet vykázaných dávek očkování."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:56",
+            "filename": "ockovani-demografie"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-geografie.csv",
+            "dc:title": "COVID-19: Geografický přehled vykázaných očkování v čase",
+            "dc:description": "Datová sada poskytuje řádková data o vykázaných očkováních v ČR. Každý řádek přehledu popisuje množství vykázaných očkování v daném dni ve vybraném kraji s použitím dané dávky očkovací látky.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "očkovací látka"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "datum",
+                        "titles": "datum",
+                        "datatype": "date",
+                        "dc:description": "Datum, ve kterém byla očkování v daném kraji provedena."
+                    },
+                    {
+                        "name": "vakcina",
+                        "titles": "vakcina",
+                        "datatype": "string",
+                        "dc:description": "Název očkovací látky."
+                    },
+                    {
+                        "name": "vakcina_kod",
+                        "titles": "vakcina_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód očkovací látky podle klasifikace ÚZIS ČR."
+                    },
+                    {
+                        "name": "poradi_davky",
+                        "titles": "poradi_davky",
+                        "datatype": "integer",
+                        "dc:description": "Pořadí dávky (první, druhá) danou očkovací látkou."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "orp_bydliste",
+                        "titles": "orp_bydliste",
+                        "datatype": "string",
+                        "dc:description": "Bydliště (na úrovni názvu obce s rozšířenou působností) očkované osoby."
+                    },
+                    {
+                        "name": "orp_bydliste_kod",
+                        "titles": "orp_bydliste_kod",
+                        "datatype": "integer",
+                        "dc:description": "Bydliště (na úrovni kódu obce s rozšířenou působností) podle číselníku ÚZIS ČR (https://pzu-api.uzis.cz/api/orp) očkované osoby."
+                    },
+                    {
+                        "name": "pocet_davek",
+                        "titles": "pocet_davek",
+                        "datatype": "integer",
+                        "dc:description": "Počet vykázaných dávek očkování."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:56",
+            "filename": "ockovani-geografie"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovaci-zarizeni.csv",
+            "dc:title": "COVID-19: Očkovací zařízení",
+            "dc:description": "Datová sada poskytuje seznam očkovacích zařízení v ČR jako doplnění seznamu očkovacích míst, kde jsou podávány očkovací látky proti onemocnění COVID-19. Jedná se především o praktické lékaře, ale i další, kde se očkování provádí.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "očkovací zařízení"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "zarizeni_kod",
+                        "titles": "zarizeni_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód zdravotnického zařízení, ve kterém je prováděno očkování (podle číselníku poskytovatelů zdravotních služeb na úrovni jednotlivých zařízení)."
+                    },
+                    {
+                        "name": "zarizeni_nazev",
+                        "titles": "zarizeni_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název zdravotnického zařízení, ve kterém je prováděno očkování."
+                    },
+                    {
+                        "name": "provoz_zahajen",
+                        "titles": "provoz_zahajen",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda bylo zahájeno očkování v daném zdravotnickém zařízení."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "okres_lau_kod",
+                        "titles": "okres_lau_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor okresu podle klasifikace LAU 1, ve kterém se očkovací zařízení nachází."
+                    },
+                    {
+                        "name": "okres_nazev",
+                        "titles": "okres_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název okresu, ve kterém se očkovací zařízení nachází."
+                    },
+                    {
+                        "name": "zrizovatel_kod",
+                        "titles": "zrizovatel_kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód zřizovatele zdravotnického zařízení podle číselníku ÚZIS."
+                    },
+                    {
+                        "name": "zrizovatel_nazev",
+                        "titles": "zrizovatel_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název zřizovatele zdravotnického zařízení."
+                    },
+                    {
+                        "name": "provoz_ukoncen",
+                        "titles": "provoz_ukoncen",
+                        "datatype": "date",
+                        "dc:description": "Datum, kdy bylo ukončeno očkování v daném zdravotnickém zařízení."
+                    },
+                    {
+                        "name": "prakticky_lekar",
+                        "titles": "prakticky_lekar",
+                        "datatype": "boolean",
+                        "dc:description": "Příznak, zda se jedná o praktického lékaře."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 08:05",
+            "filename": "ockovaci-zarizeni"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "ockovani-zakladni-prehled.csv",
+            "dc:title": "COVID-19: Základní přehled vykázaných očkování",
+            "dc:description": "Datová sada poskytuje řádková data o vykázaných očkováních v ČR. Každý řádek přehledu popisuje množství vykázaných očkování v daném kraji a ORP s použitím dané dávky očkovací látky u konkrétní věkové skupiny a pohlaví.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "koronavirus",
+                "covid-19",
+                "očkování",
+                "vakcinace",
+                "očkovací látka"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-10-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "kraj_nazev",
+                        "titles": "kraj_nazev",
+                        "datatype": "string",
+                        "dc:description": "Název kraje, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, ve kterém se nachází očkovací místo."
+                    },
+                    {
+                        "name": "orp_bydliste",
+                        "titles": "orp_bydliste",
+                        "datatype": "string",
+                        "dc:description": "Bydliště (na úrovni názvu obce s rozšířenou působností) očkované osoby."
+                    },
+                    {
+                        "name": "orp_bydliste_kod",
+                        "titles": "orp_bydliste_kod",
+                        "datatype": "integer",
+                        "dc:description": "Bydliště (na úrovni kódu obce s rozšířenou působností) podle číselníku ÚZIS ČR (https://pzu-api.uzis.cz/api/orp) očkované osoby."
+                    },
+                    {
+                        "name": "vakcina",
+                        "titles": "vakcina",
+                        "datatype": "string",
+                        "dc:description": "Název očkovací látky."
+                    },
+                    {
+                        "name": "vakcina_kod",
+                        "titles": "vakcina_kod",
+                        "datatype": "string",
+                        "dc:description": "Kód očkovací látky podle klasifikace ÚZIS ČR."
+                    },
+                    {
+                        "name": "poradi_davky",
+                        "titles": "poradi_davky",
+                        "datatype": "integer",
+                        "dc:description": "Pořadí dávky (první, druhá) danou očkovací látkou."
+                    },
+                    {
+                        "name": "vekova_skupina",
+                        "titles": "vekova_skupina",
+                        "datatype": "string",
+                        "dc:description": "Rozdělení očkovaných osob podle věku do skupin."
+                    },
+                    {
+                        "name": "pohlavi",
+                        "titles": "pohlavi",
+                        "datatype": "string",
+                        "dc:description": "V případě neuvedení pohlaví u vykázaného očkování se jedná o cizince, u kterého není možné prostřednictvím centrálních registrů pohlaví identifikovat."
+                    },
+                    {
+                        "name": "pocet_davek",
+                        "titles": "pocet_davek",
+                        "datatype": "integer",
+                        "dc:description": "Počet vykázaných dávek očkování."
+                    }
+                ]
+            },
+            "lastModification": "11.10.2021 07:56",
+            "filename": "ockovani-zakladni-prehled"
+        },
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "prioritni-skupiny.csv",
+            "dc:title": "COVID-19: Číselník prioritních skupin očkování",
+            "dc:description": "Seznam prioritních skupin pro rozdělení očkovaných osob na základě prioritizačního systému Ministerstvem zdravotnictví ČR, který je použit v datové sadě COVID-19: Přehled vykázaných očkování podle profesí.",
+            "dc:source": "Informační systém infekčních nemocí (ISIN) - https://www.uzis.cz/index.php?pg=registry-sber-dat--ochrana-verejneho-zdravi--informacni-system-infekcni-nemoci, kontakt: helpdesk.registry@uzis.cz",
+            "dcat:keyword": [
+                "covid-19",
+                "koronavirus",
+                "očkování",
+                "prioritní skupina"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-08-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "kod",
+                        "titles": "kod",
+                        "datatype": "integer",
+                        "dc:description": "Kód prioritní skupiny."
+                    },
+                    {
+                        "name": "hodnota",
+                        "titles": "hodnota",
+                        "datatype": "string",
+                        "dc:description": "Název prioritní skupiny."
+                    }
+                ]
+            },
+            "lastModification": "11.08.2021 13:41",
+            "filename": "prioritni-skupiny"
+        }
+    ],
+    "Různé": [
+        {
+            "@context": [
+                "https://www.w3.org/ns/csvw",
+                {
+                    "@language": "cs"
+                }
+            ],
+            "url": "pomucky.csv",
+            "dc:title": "COVID-19: Přehled distribuce ochranného materiálu dle krajů ČR (v2)",
+            "dc:description": "Datová sada obsahující aktuální přehled o počtech kusů ochranného materiálu k danému dni, který byl distribuován do jednotlivých krajů v ČR (brýle, dezinfekce, roušky, respirátory, ...). Datová sada nahrazuje předchozí verzi dostupnou na adrese https://onemocneni-aktualne.mzcr.cz/api/v1/covid-19/ .",
+            "dc:source": "Ministerstvo zdravotnictví ČR - https://www.mzcr.cz/, kontakt: mzcr@mzcr.cz",
+            "dcat:keyword": [
+                "koranovirus",
+                "covid-19",
+                "ochranný materiál",
+                "brýle",
+                "dezinfekce",
+                "roušky",
+                "respirátory",
+                "odběrové sady",
+                "rukavice",
+                "rychlotesty",
+                "štíty",
+                "tampóny",
+                "ochranné oděvy"
+            ],
+            "dc:publisher": {
+                "schema:name": "ÚZIS ČR",
+                "schema:url": {
+                    "@id": "https://www.uzis.cz/"
+                }
+            },
+            "dc:license": {
+                "@id": "http://data.gov.cz/podmínky-užití/volný-přístup/"
+            },
+            "dc:modified": {
+                "@value": "2021-08-11",
+                "@type": "xsd:date"
+            },
+            "tableSchema": {
+                "columns": [
+                    {
+                        "name": "pomucka",
+                        "titles": "pomucka",
+                        "datatype": "string",
+                        "dc:description": "Typ ochranného materiálu."
+                    },
+                    {
+                        "name": "kraj_nuts_kod",
+                        "titles": "kraj_nuts_kod",
+                        "datatype": "string",
+                        "dc:description": "Identifikátor kraje podle klasifikace NUTS 3, kam byl ochranný materiál distribuován."
+                    },
+                    {
+                        "name": "mnozstvi",
+                        "titles": "mnozstvi",
+                        "datatype": "integer",
+                        "dc:description": "Množství distribuovaného ochranného materiálu."
+                    }
+                ]
+            },
+            "lastModification": "11.08.2021 13:41",
+            "filename": "pomucky"
+        }
+    ]
+}
