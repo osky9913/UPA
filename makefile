@@ -2,7 +2,9 @@ install: install-mongodb install-python3
 
 
 install-mongodb:
-	echo "hello world"
+	sudo apt install -y mongodb;
+	sudo systemctl restart mongodb;
+	sudo systemctl status mongodb;
 
 
 install-python3:

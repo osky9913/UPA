@@ -1,7 +1,11 @@
+# author:  Martin Osvald
 from parser.parser import parse
 
 def main():
-    parse()
+    """
+    The main function of the program
+    """
+    parse() 
 
 
 if __name__ == "__main__":
