@@ -21,3 +21,6 @@ activate:
 
 run:
 	python3 src/main.py
+
+update-lib:
+	python -m pip freeze > requirements.txt
