@@ -23,4 +23,7 @@ run:
 	python3 src/main.py
 
 update-lib:
-	pip install -r requirements.txt
+	python -m pip freeze > requirements.txt
+
+install-lib:
+	pip3 install -r requirements.txt
