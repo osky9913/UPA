@@ -24,3 +24,6 @@ run:
 
 update-lib:
 	python -m pip freeze > requirements.txt
+
+install-lib:
+	pip3 install -r requirements.txt
