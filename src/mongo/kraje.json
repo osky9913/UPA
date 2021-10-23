@@ -1,0 +1,11 @@
+{
+    "nazov_kraju": "string",
+    "poslenda_zmena": "date",
+    "pocet_obyvatelov": "int",
+    "mesiac": "string",
+    "rok":"int",
+    "pocet_nakazenych_za_mesiac": "int",
+    "pocet_hospitalizovanych_za_mesiac": "int",
+    "pocet_zemrelych_za_mesiac": "int",
+    "pocet_ockovanych_za_mesiac":"int"
+}

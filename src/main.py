@@ -19,5 +19,6 @@ def main():
 
     #initialize mongo
     initialize_mongo()
+    
 if __name__ == "__main__":
     main()

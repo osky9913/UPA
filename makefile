@@ -16,7 +16,7 @@ install-python3:
 
 
 activate:
-	source venv/bin/activate
+	. venv/bin/activate
 
 
 run:
