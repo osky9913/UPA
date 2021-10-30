@@ -1,4 +1,5 @@
-from download.constants import STATS, URL, EPIDEMIC_STATS,TESTING,VACCINATION,OTHER
+
+from download.constants import CITIZEN_URL, STATS, COVID_URL, CITIZEN_FILE_NAME,EPIDEMIC_STATS,TESTING,VACCINATION,OTHER
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -7,13 +8,8 @@ import json
 import os 
 
 
-
-
-def cache(path_of_data) -> list : 
-    """
-    This function return a list of names of files which will be download
-    """
-    page = requests.get(URL,
+def covid_site(path_of_data):
+    page = requests.get(COVID_URL,
                     headers={'Content-type': 'text/plain; charset=utf-8'})
     if page.status_code != 200:
         sys.exit("The page is not available")
@@ -25,7 +21,7 @@ def cache(path_of_data) -> list :
     metadata_cache = {}
     for stat in STATS:
         for data in metadata[stat]:
-            metadata_cache[data["url"]] = data["lastModification"]
+            metadata_cache[COVID_URL+data["url"]] = data["lastModification"]
 
     to_be_downloaded = []
 
@@ -48,10 +44,58 @@ def cache(path_of_data) -> list :
     
 
     
-    to_be_downloaded = list(set(to_be_downloaded))
 
+
+    to_be_downloaded = list(set(to_be_downloaded))
     return to_be_downloaded
 
+
+def citizen_site(path_to_data):
+    page = requests.get(CITIZEN_URL,
+                    headers={'Content-type': 'text/plain; charset=utf-8'})
+    if page.status_code != 200:
+        sys.exit("The page is not available")
+
+
+    soup = BeautifulSoup(page.text, 'html.parser')
+    soup = soup.find(id='main-content')
+    soup = soup.find(id="column-1")
+    soup = soup.find(id="layout-column_column-1")
+    soup = soup.find(id="p_p_id_AttachmentsPortlet_WAR_rsprezentace_INSTANCE_tO9vjOXtGsJX_")
+    soup = soup.find_all("li",class_="priloha")
+    file_href = soup[-1].find("a")['href']
+    date = soup[-1].find(class_="datum")
+    date = date.text.split()[0]
+
+
+    to_be_downloaded = []
+    if CITIZEN_FILE_NAME not in os.listdir(path_to_data):
+            to_be_downloaded.append(file_href)
+
+    with open(os.path.join(path_to_data,'cache_citizen.json'), 'r', encoding='utf-8') as f:
+        cache = dict(json.load(f))
+        if cache[CITIZEN_FILE_NAME] != date:
+            to_be_downloaded.append(file_href)
+
+
+
+    to_be_downloaded = list(set(to_be_downloaded))
+    return to_be_downloaded
+
+
+    
+
+
+
+def cache(path_of_data) -> list : 
+    """
+    This function return a list of names of files which will be download
+    """
+    #to_be_downloaded_covid_site = covid_site(path_of_data)
+    to_be_downloaded_citizen_site = citizen_site(path_of_data)
+    print(to_be_downloaded_citizen_site)
+
+    #return to_be_downloaded_covid_site + to_be_downloaded_citizen_site
 
 """
 with open('data.json', 'w', encoding='utf-8') as f:
