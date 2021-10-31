@@ -27,19 +27,25 @@ def import_csv_data(db : Database):
         payload = json.loads(data.to_json(orient='records'))
         mycol.insert(payload)
 
-    
-
 def initialize_mongo():
+    """Creates new instance of Mongo database and returns it.
+    """
+
     client = MongoClient()
-    #create database
     db = client["upadb"]
-    
-    # #load metada.json
-    # with open(os.path.join("data","metadata.json"),'rb') as f: 
-    #     metadata = json.load(f)
+    return db
 
-    #import data
-    import_csv_data(db)
-   
 
-   
+def import_collection(db: Database, collection_name, data):
+    """Creates new collection or updates existing collection in db.
+    Does nothing when db is null or name is empty.
+    """
+
+    if db is None or collection_name == "" :
+        return
+
+    if collection_name in db.list_collection_names():
+        db.drop_collection(collection_name)
+
+    collection = db[collection_name]
+    collection.insert(data)

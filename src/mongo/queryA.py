@@ -1,7 +1,8 @@
-import collections
-from pymongo import MongoClient
-import pymongo, os, json, pandas
+import os, json, pandas
+from mongo.mongo import import_collection
 from pymongo.database import Database
+
+COLLECTION_NAME = "kraje_celkove"
 
 nuts_codes = {
     "CZ010": "Hlavní město Praha",
@@ -18,6 +19,23 @@ nuts_codes = {
     "CZ071": "Olomoucký kraj",
     "CZ072": "Zlínský kraj",
     "CZ080": "Moravskoslezský kraj"
+}
+
+nuts_codes_citizen = {
+    "CZ010": "3018",
+    "CZ020": "3026",
+    "CZ031": "3034",
+    "CZ032": "3042",
+    "CZ041": "3051",
+    "CZ042": "3069",
+    "CZ051": "3077",
+    "CZ052": "3085",
+    "CZ053": "3093",
+    "CZ063": "3107",
+    "CZ064": "3115",
+    "CZ071": "3123",
+    "CZ072": "3131",
+    "CZ080": "3140"
 }
 
 vekove_skupiny = [
@@ -38,19 +56,27 @@ vekove_skupiny = [
     }
 ]
 
-def initialize_query_A():
+def initialize_query_A(db: Database):
+    """Initialize data for section A in project assigment.
+    For each province in Czechia process numbers needed for further querying.
+    Then upload documents to db.
+    """
+
+    # read the CSV files
     osoby_nakazeni = pandas.read_csv(os.path.join("data", "osoby.csv"))
     osoby_ockovani = pandas.read_csv(os.path.join("data", "ockovani-zakladni-prehled.csv"))
+    obyvatelstvo = pandas.read_csv(os.path.join("data", "citizen.csv"))
 
+    # get numbers of provinces
     kraje = osoby_nakazeni["kraj_nuts_kod"].unique()
-    final_object = {}
-    final_object["kraje"] = []
+    final_array = []
 
     for kraj in kraje:
+        print("Processing data for: " + nuts_codes[kraj])
         obj = {}
         obj["id"] = kraj
         obj["nazev_kraje"] = nuts_codes[kraj]
-        obj["pocet_obyvatel"] = 5 #todo
+        obj["pocet_obyvatel"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[kraj] + " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
         obj["celkovy_pocet_nakazenych"] = len(osoby_nakazeni.query("kraj_nuts_kod=='" + kraj + "'"))
         obj["celkovy_pocet_ockovanych"] = int(osoby_ockovani.query("kraj_nuts_kod == '" + kraj + "' & poradi_davky == 1")["pocet_davek"].sum())
         obj["vekove_skupiny"] = {}
@@ -65,5 +91,7 @@ def initialize_query_A():
                     "zeny": int(osoby_ockovani.query("kraj_nuts_kod == '" + kraj + "' & poradi_davky == 1 & pohlavi == 'Z' " + skupina["query_ockovani"])["pocet_davek"].sum()),
                 }
             }
-        final_object["kraje"].append(obj)
-    print(json.dumps(final_object, sort_keys=True, indent=4, ensure_ascii=False))
+        final_array.append(obj)
+
+    # upload data to mongodb
+    import_collection(db, COLLECTION_NAME, final_array)

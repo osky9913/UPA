@@ -15,13 +15,14 @@ def main():
     path_to_data = os.path.abspath(os.path.join(".","data")) 
 
     #download data
-    #list_of_files_to_be_download = cache(path_to_data) 
-    #download(list_of_files_to_be_download,path_to_data)
+    list_of_files_to_be_download = cache(path_to_data) 
+    download(list_of_files_to_be_download,path_to_data)
 
     #initialize mongo
-    #initialize_mongo()
+    db = initialize_mongo()
 
     #initialize db for A query section
-    initialize_query_A()
+    initialize_query_A(db)
+    
 if __name__ == "__main__":
     main()
