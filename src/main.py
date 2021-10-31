@@ -1,6 +1,7 @@
 # author:  Martin Osvald
 from parser.parser import parse
-from download.cache import cache
+from download.cache import covid_site , citizen_site
+from download.constants import CITIZEN_FILE_NAME
 from download.download import download
 from mongo.mongo import initialize_mongo
 from mongo.queryA import initialize_query_A
@@ -15,8 +16,11 @@ def main():
     path_to_data = os.path.abspath(os.path.join(".","data")) 
 
     #download data
-    list_of_files_to_be_download = cache(path_to_data) 
+    list_of_files_to_be_download = covid_site(path_to_data)
     download(list_of_files_to_be_download,path_to_data)
+
+    list_of_files_to_be_download = citizen_site(path_to_data)
+    download(list_of_files_to_be_download,path_to_data,CITIZEN_FILE_NAME)
 
     #initialize mongo
     db = initialize_mongo()
