@@ -4,6 +4,7 @@ from download.cache import covid_site , citizen_site
 from download.constants import CITIZEN_FILE_NAME
 from download.download import download
 from mongo.mongo import initialize_mongo
+from mongo.queryA import initialize_query_A
 import os
 
 def main():
@@ -22,6 +23,10 @@ def main():
     download(list_of_files_to_be_download,path_to_data,CITIZEN_FILE_NAME)
 
     #initialize mongo
-    initialize_mongo()
+    db = initialize_mongo()
+
+    #initialize db for A query section
+    initialize_query_A(db)
+    
 if __name__ == "__main__":
     main()
