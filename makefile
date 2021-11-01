@@ -1,4 +1,4 @@
-install: install-mongodb install-python3
+install: install-mongodb install-python3git p
 
 
 install-mongodb:
