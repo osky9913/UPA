@@ -8,7 +8,22 @@ from pymongo import MongoClient
 
 
 COLLECTION_NAME = "kraje_rok_mesiac"
-
+nuts_codes_citizen = {
+    "CZ010": "3018",
+    "CZ020": "3026",
+    "CZ031": "3034",
+    "CZ032": "3042",
+    "CZ041": "3051",
+    "CZ042": "3069",
+    "CZ051": "3077",
+    "CZ052": "3085",
+    "CZ053": "3093",
+    "CZ063": "3107",
+    "CZ064": "3115",
+    "CZ071": "3123",
+    "CZ072": "3131",
+    "CZ080": "3140"
+}
 nuts_codes = {
     "CZ010": "Hlavní město Praha",
     "CZ020": "Středočeský kraj",
@@ -31,6 +46,7 @@ def initialize_query_B(db: Database):
     osoby = pd.read_csv(os.path.join("data", "osoby.csv"))
     ockovani = pd.read_csv(os.path.join("data", "ockovani.csv"))
     umrti = pd.read_csv(os.path.join("data", "umrti.csv"))
+    obyvatelstvo = pd.read_csv(os.path.join("data", "citizen.csv"))
     regions = osoby["kraj_nuts_kod"].unique()
 
     obj = osoby.query('kraj_nuts_kod == "CZ010" & datum == "2021-03"')
@@ -52,6 +68,7 @@ def initialize_query_B(db: Database):
                 obj = {}
                 obj["region"] = nuts_codes[region]
                 obj["region_nuts_code"] = region
+                obj["region_population"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[region] + " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
                 obj["year"] = int(year)
                 obj["month"] = int(month)
                 #get number of infected people in specific region and in specific month
