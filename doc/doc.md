@@ -19,8 +19,8 @@ Samotný skript využívá knihovnu `pandas` pro jednoduchou práci se soubory .
 
 ## Návod na spustenie
 
--   `make install ` nainštaluje python3, aktivuje enviroment, nainštaluje knižnice, a taktiež aj nainštaluje databázu mongodb
--   `make run ` spustí skript src/main.py, ktorý pomocou cache stiahne vybrané datasety na stiahnutie zo stránok https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19 a z https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech. Dané datasety následne skript spracuje do databáze.
+-   `make install` nainštaluje python3, aktivuje enviroment, nainštaluje knižnice, a taktiež aj nainštaluje databázu mongodb
+-   `make run` spustí skript src/main.py, ktorý pomocou cache stiahne vybrané datasety na stiahnutie zo stránok https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19 a z https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech. Dané datasety následne skript spracuje do databáze.
 -   `make clean` - smazání datových sad a celého virtuálního prostředí
 
 ## Inicializácia databázy MongoDB

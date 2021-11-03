@@ -1,4 +1,4 @@
-import os, json, pandas
+import os, pandas
 from mongo.mongo import import_collection
 from pymongo.database import Database
 
