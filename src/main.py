@@ -21,7 +21,7 @@ def main():
     download(list_of_files_to_be_download,path_to_data)
 
     list_of_files_to_be_download = citizen_site(path_to_data)
-    download(list_of_files_to_be_download,path_to_data,CITIZEN_FILE_NAME)
+    cnt_of_downloaded_files = download(list_of_files_to_be_download,path_to_data,CITIZEN_FILE_NAME)
 
     #initialize mongo
     db = initialize_mongo()

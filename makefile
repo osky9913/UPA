@@ -1,5 +1,7 @@
 BIN=venv/bin/
-install: install-mongodb install-python3
+.ONESHELL:
+
+install: install-mongodb install-python3 install-env
 
 install-mongodb:
 	sudo apt install -y mongodb;
@@ -10,8 +12,9 @@ install-mongodb:
 install-python3:
 	sudo apt install python3-pip
 	python3 -m venv venv
-	. venv/bin/activate
-	pip3 install -r requirements.txt
+
+install-env:
+	( . venv/bin/activate; pip install -r requirements.txt; )
 
 run:
 	$(BIN)python3 src/main.py
@@ -21,3 +24,6 @@ update-lib:
 
 install-lib:
 	pip3 install -r requirements.txt
+
+clean-data:
+	rm -rf data/*.csv

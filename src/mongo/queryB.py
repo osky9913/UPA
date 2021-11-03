@@ -64,7 +64,7 @@ def initialize_query_B(db: Database):
     for region in regions:
         for year in years_of_pandemic:
             for month in range(1,13):  
-                print("Dotazy_B: Processing data for:" ,year, "-", month , " ", nuts_codes[region])      
+                print("Requests_B: Processing data for:" ,year, "-", month , " ", nuts_codes[region])      
                 obj = {}
                 obj["kraj"] = nuts_codes[region]
                 obj["kraj_nuts_code"] = region
