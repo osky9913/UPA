@@ -10,8 +10,9 @@
 
 ## Prerekvizity
 
--   Linux Ubuntu 20.04
--   At least 6.0 GB
+-   Linux Ubuntu 20.04 
+-   Ostatné UNIX OS: Make,Python3, pip3, mongodb a potom `make install-lib`
+-   aspoň 6.0 GB volného miesta
 
 Pro řešení projektu jsme zvolili skriptovací jazyk Python. Jako databázové prostředí bylo zvoleno MongoDB.
 
@@ -20,7 +21,7 @@ Samotný skript využívá knihovnu `pandas` pro jednoduchou práci se soubory .
 ## Návod na spustenie
 -   `git clone https://github.com/osky9913/UPA.git` Stiahnutie repa
 -   `cd UPA` 
--   `make install` nainštaluje python3, aktivuje enviroment, nainštaluje knižnice, a taktiež aj nainštaluje databázu mongodb
+-   `make install`(Funguje len na distribucii Ubuntu ) nainštaluje python3, aktivuje enviroment, nainštaluje knižnice, a taktiež aj nainštaluje databázu mongodb
 -   `make run` spustí skript src/main.py, ktorý pomocou cache stiahne vybrané datasety na stiahnutie zo stránok https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19 a z https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech. Dané datasety následne skript spracuje do databáze.
 -   `make clean` - smazání datových sad a celého virtuálního prostředí
 
