@@ -6,10 +6,12 @@
 - Špavor Dávid (xspavo00)
 
 ## Prerekvizity 
-- popisat potrebne prerekvizity a navod na spustenie
+  - Linux Ubuntu 20.04
+  - At least 6.0 GB 
 
 ## Návod na spustenie
-make
+```make install ``` nainštaluje python3, aktivuje enviroment, nainštaluje knižnice, a taktiež aj nainštaluje databázu mongodb
+```make run ``` spustí skript src/main.py, ktorý pomocou cache stiahne vybrané datasety na stiahnutie zo stránok https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19 a z https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech.  Dané datasety následne skript spracuje do databáze.  
 
 ## Inicializácia databázy MongoDB
 Pre riešenie sme si vybrali databázu MongoDB. MongoDB je dokumentovo orientovaná NoSQL databáza, ktorá ukladá dokumenty v podobe JSON súborov. Túto databázu sme si vybrali preto, lebo je široko využívaná v praxi a poskytuje efektívne nástroje na získavanie, filtrovanie a vkladanie dát do databázy.
@@ -28,11 +30,42 @@ Přesné údaje o obyvatelstvu v jednotlivých krajích a obcích získáme z da
 - ktore data spolu suviasia a mozeme ich prepojit
 
 ## Sťahovanie dátovej sady
-download
-- popis ako sa stahuje datova sada
-- ako funguje cache
-- co vsetko stahujeme
+Datasety stahujeme z dvoch stránok https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19 a https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech. Webová stránka https://menocneni-aktualne.mzcr.cz/pi/v2/covid-19 má prepracované API.
+Na danej stránke pod atribútomm `data-datasets-metadata` sa nachádzajú všetky metadáta o dátach čo poskytuje Česká republika. Vďaka metadátam, ktoré obsahujú  klúč `dc:modified` sa v skripte kontroluje dátum aktualizácie  oproti uloženým metadátam v `cache.json`. Ak skript nemôže pristúpiť na stránku tak sťahovanie sa zastaví. Ak program už má aktuálný .csv dataset v priečinku data/ tak ho už nesťahuje druhý krát.  https://www.czso.cz/csu/czso/obyvatelstvo-podle-petiletych-vekovych-skupin-a-pohlavi-v-krajich-a-okresech už nemá prepacované API lebo nemá nikde zadané metadata, no stále pod viacerými atributmi zo stránky je skript schopný pristúpiť ku dátumu aktualizácie a ku odkazu na daný .csv dataset.
 
+Zoznam stiahnutých .csv súborov:
+- zakladni-prehled.csv
+- osoby.csv
+- vyleceni.csv
+- umrti.csv 
+- hospitalizace.csv 
+- nakazeni-vyleceni-umrti-testy.csv
+- kraj-okres-nakazeni-vyleceni-umrti.csv
+- orp.csv 
+- obce.csv 
+- mestske-casti.csv 
+- incidence-7-14-cr.csv
+- incidence-7-14-kraje.csv
+- incidence-7-14-okresy.csv
+- testy-pcr-antigenni.csv
+- kraj-okres-testy.csv
+- prehled-odberovych-mist.csv
+- ockovani.csv 
+- ockovaci-mista.csv 
+- prehled-ockovacich-mist.csv
+- ockovani-spotreba.csv 
+- ockovani-distribuce.csv 
+- ockovani-distribuce-sklad.csv
+- ockovani-registrace.csv 
+- ockovani-rezervace.csv 
+- ockovani-profese.csv 
+- ockovani-demografie.csv 
+- ockovani-geografie.csv 
+- ockovaci-zarizeni.csv 
+- ockovani-zakladni-prehled.csv
+- prioritni-skupiny.csv 
+- pomucky.csv 
+- citizen.csv ( Obyvateľstvo )
 
 
 ## Návrh štruktúry databázy
