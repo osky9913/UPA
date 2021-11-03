@@ -27,3 +27,8 @@ install-lib:
 
 clean-data:
 	rm -rf data/*.csv
+
+clean-env:
+	rm -rf venv
+
+clean: clean-data clean-env

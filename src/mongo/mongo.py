@@ -1,6 +1,5 @@
-import collections
 from pymongo import MongoClient
-import pymongo, os, json, pandas
+import os, json, pandas
 from pymongo.database import Database
 
 

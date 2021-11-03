@@ -1,10 +1,8 @@
-import os, json
-from typing import Collection
+import os
 import pandas as pd
-import pymongo
 from mongo.mongo import import_collection
 from pymongo.database import Database
-from pymongo import MongoClient
+
 
 
 COLLECTION_NAME = "kraje_rok_mesiac"

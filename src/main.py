@@ -1,4 +1,4 @@
-# author:  Martin Osvald
+# author:  Martin Osvald, Daniel Patek, David Spavor
 from parser.parser import parse
 from download.cache import covid_site , citizen_site
 from download.constants import CITIZEN_FILE_NAME
