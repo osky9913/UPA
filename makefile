@@ -1,5 +1,5 @@
 BIN=venv/bin/
-install: install-mongodb install-python3git p
+install: install-mongodb install-python3
 
 
 install-mongodb:
