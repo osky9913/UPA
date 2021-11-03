@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import pymongo, os, json, pandas
 from pymongo.database import Database
 
+
 #array of csv files, which will be imported to mongodb
 csv_collection_names = ["nakazeni-vyleceni-umrti-testy",
                     "testy-pcr-antigenni",

@@ -5,6 +5,7 @@ from download.constants import CITIZEN_FILE_NAME
 from download.download import download
 from mongo.mongo import initialize_mongo
 from mongo.queryA import initialize_query_A
+from mongo.queryB import initialize_query_B
 import os
 
 def main():
@@ -27,6 +28,8 @@ def main():
 
     #initialize db for A query section
     initialize_query_A(db)
+    #initialize db for A query section
+    initialize_query_B(db)
     
 if __name__ == "__main__":
     main()

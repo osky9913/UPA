@@ -1,4 +1,5 @@
-install: install-mongodb install-python3
+BIN=venv/bin/
+install: install-mongodb install-python3git p
 
 
 install-mongodb:
@@ -16,11 +17,12 @@ install-python3:
 
 
 activate:
-	source venv/bin/activate
+	source ./venv/bin/activate
+
 
 
 run:
-	python3 src/main.py
+	$(BIN)python3 src/main.py
 
 update-lib:
 	python -m pip freeze > requirements.txt
