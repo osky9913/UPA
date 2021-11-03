@@ -26,7 +26,7 @@ def covid_site(path_of_data):
     to_be_downloaded = []
 
     for key in metadata_cache.keys():
-        if key not in os.listdir(path_of_data):
+        if key not in [ COVID_URL+name for name in  os.listdir(path_of_data)]:
             to_be_downloaded.append(key)
 
 
@@ -42,10 +42,6 @@ def covid_site(path_of_data):
     with open(os.path.join( path_of_data,'cache.json'), 'w', encoding='utf-8') as f:
         json.dump(cache, f, ensure_ascii=False, indent=4)
     
-
-    
-
-
     to_be_downloaded = list(set(to_be_downloaded))
     return to_be_downloaded
 
@@ -55,7 +51,6 @@ def citizen_site(path_to_data):
                     headers={'Content-type': 'text/plain; charset=utf-8'})
     if page.status_code != 200:
         sys.exit("The page is not available")
-
 
     soup = BeautifulSoup(page.text, 'html.parser')
     soup = soup.find(id='main-content')
@@ -77,27 +72,5 @@ def citizen_site(path_to_data):
         if cache[CITIZEN_FILE_NAME] != date:
             to_be_downloaded.append(file_href)
 
-
-
     to_be_downloaded = list(set(to_be_downloaded))
     return to_be_downloaded
-
-
-    
-
-
-
-def cache(path_of_data) -> list : 
-    """
-    This function return a list of names of files which will be download
-    """
-    #to_be_downloaded_covid_site = covid_site(path_of_data)
-    to_be_downloaded_citizen_site = citizen_site(path_of_data)
-    print(to_be_downloaded_citizen_site)
-
-    #return to_be_downloaded_covid_site + to_be_downloaded_citizen_site
-
-"""
-with open('data.json', 'w', encoding='utf-8') as f:
-    json.dump(metadata, f, ensure_ascii=False, indent=4)
-"""

@@ -72,7 +72,7 @@ def initialize_query_A(db: Database):
     final_array = []
 
     for kraj in kraje:
-        print("Processing data for: " + nuts_codes[kraj])
+        print("Requests_A: Processing data for: " + nuts_codes[kraj])
         obj = {}
         obj["id"] = kraj
         obj["nazev_kraje"] = nuts_codes[kraj]

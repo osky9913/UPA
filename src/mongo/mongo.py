@@ -1,16 +1,11 @@
-import collections
 from pymongo import MongoClient
-import pymongo, os, json, pandas
+import os, json, pandas
 from pymongo.database import Database
 
 
 #array of csv files, which will be imported to mongodb
-csv_collection_names = ["nakazeni-vyleceni-umrti-testy",
-                    "testy-pcr-antigenni",
-                    "umrti",
-                    "kraj-okres-nakazeni-vyleceni-umrti",
-                    "kraj-okres-testy",
-                    "ockovani-hospitalizace"]
+csv_collection_names = ["orp",
+                        "obce"]
 
 def import_csv_data(db : Database):
 
