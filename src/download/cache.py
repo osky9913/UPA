@@ -2,7 +2,6 @@
 from download.constants import CITIZEN_URL, STATS, COVID_URL, CITIZEN_FILE_NAME,EPIDEMIC_STATS,TESTING,VACCINATION,OTHER
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
 import sys
 import json
 import os 
@@ -26,7 +25,7 @@ def covid_site(path_of_data):
     to_be_downloaded = []
 
     for key in metadata_cache.keys():
-        if key not in [ COVID_URL+name for name in  os.listdir(path_of_data)]:
+        if key not in [COVID_URL+name for name in  os.listdir(path_of_data)]:
             to_be_downloaded.append(key)
 
 
