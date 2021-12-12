@@ -15,5 +15,6 @@ EPIDEMIC_STATS = "Epidemiologické charakteristiky"
 TESTING = "Testování"
 VACCINATION = "Očkování"
 OTHER = "Různé"
-STATS = [EPIDEMIC_STATS,TESTING,VACCINATION,OTHER]
+# OTHER is not supported anymore OTHER
+STATS = [EPIDEMIC_STATS,TESTING,VACCINATION]
 # ------------------- COVID string constants in metadata----------

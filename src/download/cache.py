@@ -18,12 +18,17 @@ def covid_site(path_of_data):
     metadata = json.loads(soup['data-datasets-metadata'])
 
     metadata_cache = {}
-    for stat in STATS:
-        for data in metadata[stat]:
-            metadata_cache[COVID_URL+data["url"]] = data["lastModification"]
+    
+
+
+
+    for stat in STATS:    
+        for data in metadata[stat]:            
+            metadata_cache[data["url"]] = data["lastModification"]
 
     to_be_downloaded = []
 
+    
     for key in metadata_cache.keys():
         if key not in [COVID_URL+name for name in  os.listdir(path_of_data)]:
             to_be_downloaded.append(key)
@@ -32,7 +37,13 @@ def covid_site(path_of_data):
     with open(os.path.join( path_of_data,'cache.json'), 'r', encoding='utf-8') as f:
         cache = dict(json.load(f))
     
+
+    for x  in metadata_cache.keys():
+        print(x)
+
+        
     for key in cache.keys():
+    
         if cache[key] != metadata_cache[key]:
             to_be_downloaded.append(key)
             cache[key] = metadata_cache[key]
@@ -43,6 +54,11 @@ def covid_site(path_of_data):
     
     to_be_downloaded = list(set(to_be_downloaded))
     return to_be_downloaded
+
+
+
+
+
 
 
 def citizen_site(path_to_data):
