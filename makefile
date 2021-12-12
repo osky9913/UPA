@@ -20,6 +20,9 @@ install-env:
 run:
 	$(BIN)python3 src/main.py
 
+plot:
+	$(BIN)python3 src/plot.py
+
 update-lib:
 	python -m pip freeze > requirements.txt
 
