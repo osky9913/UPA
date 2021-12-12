@@ -11,6 +11,7 @@ install-mongodb:
 
 install-python3:
 	sudo apt install python3-pip
+	sudo apt install python3.8-venv
 	python3 -m venv venv
 
 install-env:
