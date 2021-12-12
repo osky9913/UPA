@@ -1,4 +1,5 @@
-import os, pandas
+import os
+import pandas
 from mongo.mongo import import_collection
 from pymongo.database import Database
 
@@ -56,6 +57,7 @@ vekove_skupiny = [
     }
 ]
 
+
 def initialize_query_A(db: Database):
     """Initialize data for section A in project assigment.
     For each province in Czechia process numbers needed for further querying.
@@ -64,11 +66,14 @@ def initialize_query_A(db: Database):
 
     # read the CSV files
     osoby_nakazeni = pandas.read_csv(os.path.join("data", "osoby.csv"))
-    osoby_ockovani = pandas.read_csv(os.path.join("data", "ockovani-zakladni-prehled.csv"))
+    osoby_ockovani = pandas.read_csv(os.path.join(
+        "data", "ockovani-zakladni-prehled.csv"))
     obyvatelstvo = pandas.read_csv(os.path.join("data", "citizen.csv"))
 
     # get numbers of provinces
     kraje = osoby_nakazeni["kraj_nuts_kod"].unique()
+    kraje = [k for k in kraje if isinstance(k, str)]
+
     final_array = []
 
     for kraj in kraje:
@@ -76,12 +81,15 @@ def initialize_query_A(db: Database):
         obj = {}
         obj["id"] = kraj
         obj["nazev_kraje"] = nuts_codes[kraj]
-        obj["pocet_obyvatel"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[kraj] + " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
-        obj["celkovy_pocet_nakazenych"] = len(osoby_nakazeni.query("kraj_nuts_kod=='" + kraj + "'"))
-        obj["celkovy_pocet_ockovanych"] = int(osoby_ockovani.query("kraj_nuts_kod == '" + kraj + "' & poradi_davky == 1")["pocet_davek"].sum())
+        obj["pocet_obyvatel"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[kraj] +
+                                    " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
+        obj["celkovy_pocet_nakazenych"] = len(
+            osoby_nakazeni.query("kraj_nuts_kod=='" + kraj + "'"))
+        obj["celkovy_pocet_ockovanych"] = int(osoby_ockovani.query(
+            "kraj_nuts_kod == '" + kraj + "' & poradi_davky == 1")["pocet_davek"].sum())
         obj["vekove_skupiny"] = {}
         for skupina in vekove_skupiny:
-            obj["vekove_skupiny"][skupina["nazev"]] = { 
+            obj["vekove_skupiny"][skupina["nazev"]] = {
                 "pocet_nakazenych": {
                     "muzi": len(osoby_nakazeni.query("kraj_nuts_kod == '" + kraj + "' & " + skupina["query"] + " & pohlavi == 'M'")),
                     "zeny": len(osoby_nakazeni.query("kraj_nuts_kod == '" + kraj + "' & " + skupina["query"] + " & pohlavi == 'Z'")),

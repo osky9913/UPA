@@ -4,7 +4,6 @@ from mongo.mongo import import_collection
 from pymongo.database import Database
 
 
-
 COLLECTION_NAME = "kraje_rok_mesiac"
 nuts_codes_citizen = {
     "CZ010": "3018",
@@ -46,39 +45,38 @@ def initialize_query_B(db: Database):
     umrti = pd.read_csv(os.path.join("data", "umrti.csv"))
     obyvatelstvo = pd.read_csv(os.path.join("data", "citizen.csv"))
     regions = osoby["kraj_nuts_kod"].unique()
+    regions = [k for k in regions if isinstance(k, str)]
 
     obj = osoby.query('kraj_nuts_kod == "CZ010" & datum == "2021-03"')
-    #convert dates to datetime for querying purposes
+    # convert dates to datetime for querying purposes
     osoby['datum'] = pd.to_datetime(osoby['datum'])
     ockovani['datum'] = pd.to_datetime(ockovani['datum'])
     umrti['datum'] = pd.to_datetime(umrti['datum'])
 
-    #get years of pandemic from data
+    # get years of pandemic from data
     years_of_pandemic = osoby['datum'].dt.year.unique()
 
-    
     collection = []
 
     for region in regions:
         for year in years_of_pandemic:
-            for month in range(1,13):  
-                print("Requests_B: Processing data for:" ,year, "-", month , " ", nuts_codes[region])      
+            for month in range(1, 13):
+                print("Requests_B: Processing data for:", year,
+                      "-", month, " ", nuts_codes[region])
                 obj = {}
                 obj["kraj"] = nuts_codes[region]
                 obj["kraj_nuts_code"] = region
-                obj["kraj_populace"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[region] + " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
+                obj["kraj_populace"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[region] +
+                                           " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
                 obj["rok"] = int(year)
                 obj["mesiac"] = int(month)
-                #get number of infected people in specific region and in specific month
-                obj["infekcie-za-mesiac"] = int(osoby.loc[(osoby['datum'].dt.year==year) & (osoby['datum'].dt.month==month) & (osoby['kraj_nuts_kod'] == region)].size)
-                obj["ockovanie-za-mesiac"] = int(ockovani.loc[(ockovani['datum'].dt.year==year) & (ockovani['datum'].dt.month==month) & (ockovani['kraj_nuts_kod'] == region)].size)
-                obj["smrti-za-mesiac"] = int(umrti.loc[(ockovani['datum'].dt.year==year) & (umrti['datum'].dt.month==month) & (umrti['kraj_nuts_kod'] == region)].size)
+                # get number of infected people in specific region and in specific month
+                obj["infekcie-za-mesiac"] = int(osoby.loc[(osoby['datum'].dt.year == year) & (
+                    osoby['datum'].dt.month == month) & (osoby['kraj_nuts_kod'] == region)].size)
+                obj["ockovanie-za-mesiac"] = int(ockovani.loc[(ockovani['datum'].dt.year == year) & (
+                    ockovani['datum'].dt.month == month) & (ockovani['kraj_nuts_kod'] == region)].size)
+                obj["smrti-za-mesiac"] = int(umrti.loc[(ockovani['datum'].dt.year == year) & (
+                    umrti['datum'].dt.month == month) & (umrti['kraj_nuts_kod'] == region)].size)
                 collection.append(obj)
-                
+
     import_collection(db, COLLECTION_NAME, collection)
-
-
-
-    
-    
-    
