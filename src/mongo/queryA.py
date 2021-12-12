@@ -73,6 +73,7 @@ def initialize_query_A(db: Database):
     # get numbers of provinces
     kraje = osoby_nakazeni["kraj_nuts_kod"].unique()
     kraje = [k for k in kraje if isinstance(k, str)]
+
     final_array = []
 
     for kraj in kraje:
