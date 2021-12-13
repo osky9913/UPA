@@ -28,15 +28,15 @@ def main():
     db = initialize_mongo()
 
     print('Importing raw csv files...')
-    #import raw csv data
-    # import_csv_data(db)
-    # #initialize db for A query section
-    # initialize_query_A(db)
-    # #initialize db for A query section
-    # initialize_query_B(db)
+    ##import raw csv data
+    #import_csv_data(db)
+    #initialize db for A query section
+    #initialize_query_A(db)
+    #initialize db for A query section
+    #initialize_query_B(db)
 
     #convert collections, which are needs for queries to csv
-    convert_collection_to_csv("kraje_rok_mesiac",db)
+    #convert_collection_to_csv("kraje_rok_mesiac",db)
 
     #apply queryB
     queryB('kraje_rok_mesiac.csv')

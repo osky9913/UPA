@@ -3,6 +3,7 @@ import pandas as pd
 from pymongo.database import Database
 
 def convert_collection_to_csv(name, db : Database):
+    print('Converting collection '+ name + ' to csv...')
     col = db[name]
     mongo_docs = col.find()
     # Convert the mongo docs to a DataFrame
