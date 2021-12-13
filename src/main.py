@@ -5,7 +5,8 @@ from download.constants import CITIZEN_FILE_NAME
 from download.download import download
 from mongo.mongo import initialize_mongo, import_csv_data
 from mongo.queryA import initialize_query_A
-from mongo.queryB import initialize_query_B
+from mongo.queryB import initialize_query_B, queryB
+from csv_extractor.csvExtractor import convert_collection_to_csv
 import os
 
 def main():
@@ -28,11 +29,17 @@ def main():
 
     print('Importing raw csv files...')
     #import raw csv data
-    import_csv_data(db)
-    #initialize db for A query section
-    initialize_query_A(db)
-    #initialize db for A query section
-    initialize_query_B(db)
+    # import_csv_data(db)
+    # #initialize db for A query section
+    # initialize_query_A(db)
+    # #initialize db for A query section
+    # initialize_query_B(db)
+
+    #convert collections, which are needs for queries to csv
+    convert_collection_to_csv("kraje_rok_mesiac",db)
+
+    #apply queryB
+    queryB('kraje_rok_mesiac.csv')
     
 if __name__ == "__main__":
     main()

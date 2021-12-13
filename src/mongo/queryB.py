@@ -1,7 +1,9 @@
 import os
 import pandas as pd
+import matplotlib.pyplot as plt 
 from mongo.mongo import import_collection
 from pymongo.database import Database
+from pandas.plotting import table
 
 
 COLLECTION_NAME = "kraje_rok_mesiac"
@@ -80,3 +82,47 @@ def initialize_query_B(db: Database):
                 collection.append(obj)
 
     import_collection(db, COLLECTION_NAME, collection)
+
+
+def queryB(csvFileName):
+    filePath = os.path.join('queries_csv',csvFileName)
+    df = pd.read_csv(filePath)
+    #print(df.head(5))
+
+    #filter 2021 year
+    df = df.loc[(df['rok'] == 2021)]
+    #print(df[['kraj_populace', 'infekcie-za-mesiac',]])
+
+    #compute infections per one inhabitant in region
+    df['pocet_nakazenych_na_obyvatela'] = df['infekcie-za-mesiac'] / df['kraj_populace'] 
+    #print(df.head(13))
+
+
+    #aggregate months into 1/4 years
+    df = df.reset_index()
+    d = {'kraj': 'last', 'mesiac': 'first', 'infekcie-za-mesiac':'sum' ,'kraj_populace':'first','pocet_nakazenych_na_obyvatela': 'sum'}
+    df = df.groupby(df.index // 3).agg(d) 
+    #print(df)
+
+
+    #filter each quarter year and sort values
+    ranking1 = df.loc[(df['mesiac'] == 1)].sort_values(['pocet_nakazenych_na_obyvatela'])
+    ranking1 = ranking1[['kraj', 'infekcie-za-mesiac','kraj_populace','pocet_nakazenych_na_obyvatela']]
+    ranking1 = ranking1.reset_index()
+    del ranking1['index']
+
+    print(ranking1)
+
+
+    fig, ax = plt.subplots(figsize=(20, 5)) # set size frame
+    fig.suptitle('1. stvrtrok', fontsize=20)
+    ax.xaxis.set_visible(False)  # hide the x axis
+    ax.yaxis.set_visible(False)  # hide the y axis
+    ax.set_frame_on(False)  # no visible frame, uncomment if size is ok
+    tabla = table(ax, ranking1, loc='upper right', colWidths=[0.18]*len(ranking1.columns))  # where df is your data frame
+    tabla.auto_set_font_size(False) # Activate set fontsize manually
+    tabla.set_fontsize(12) # if ++fontsize is necessary ++colWidths
+    tabla.scale(1.5, 1.5) # change size table
+    plt.savefig('ranking1.png', transparent=True)
+
+    
