@@ -1,5 +1,6 @@
 from mongo.mongo import initialize_mongo
 from mongo.queryA import export_A_csvs
+from csv_extractor.csvExtractor import convert_collection_to_csv
 
 
 def main():
@@ -9,8 +10,7 @@ def main():
 
     print("Extracting CSVs")
     export_A_csvs(db)
-    # todo add CSVs for section B
-
+    convert_collection_to_csv("kraje_rok_mesiac",db)
     print("Export was succesfull, continue plotting with \"make plot\".")
 
 

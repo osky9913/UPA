@@ -28,6 +28,7 @@ def main():
     db = initialize_mongo()
 
     print('Importing raw csv files...')
+
     # import raw csv data
     import_csv_data(db)
     # initialize db for A query section
