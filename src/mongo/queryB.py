@@ -76,26 +76,23 @@ def initialize_query_B(db: Database):
                 # get number of infected people in specific region and in specific month
                 obj["infekcie-za-mesiac"] = int(len(osoby.loc[(osoby['datum'].dt.year == year) & (
                     osoby['datum'].dt.month == month) & (osoby['kraj_nuts_kod'] == region)]))
-
-                # obj["ockovanie-za-mesiac"] = int(ockovani.loc[(ockovani['datum'].dt.year == year) & (
-                #     ockovani['datum'].dt.month == month) & (ockovani['kraj_nuts_kod'] == region)].size)
-                # obj["smrti-za-mesiac"] = int(umrti.loc[(ockovani['datum'].dt.year == year) & (
-                #     umrti['datum'].dt.month == month) & (umrti['kraj_nuts_kod'] == region)].size)
+                obj["ockovanie-za-mesiac"] = int(ockovani.loc[(ockovani['datum'].dt.year == year) & (
+                    ockovani['datum'].dt.month == month) & (ockovani['kraj_nuts_kod'] == region)].size)
+                obj["smrti-za-mesiac"] = int(umrti.loc[(ockovani['datum'].dt.year == year) & (
+                    umrti['datum'].dt.month == month) & (umrti['kraj_nuts_kod'] == region)].size)
                 collection.append(obj)
 
     import_collection(db, COLLECTION_NAME, collection)
 
    
-def queryB(csvFileName):
-    filePath = os.path.join('queries_csv',csvFileName)
+def plot_queries_B_ranking():
+    filePath = os.path.join('queries_csv',"kraje_rok_mesiac.csv")
     df = pd.read_csv(filePath)
     osoby = pd.read_csv(os.path.join("data", "osoby.csv"))
     osoby['datum'] = pd.to_datetime(osoby['datum'])
     #filter 2021 year
     df = df.loc[(df['rok'] == 2021)]
     
-
-
     #aggregate months into 1/4 years
     new_df = pd.DataFrame()
     regions = df['kraj'].unique()
@@ -109,8 +106,7 @@ def queryB(csvFileName):
     #compute infection per one person
     new_df['pocet_nakazenych_na_obyvatela'] = round(new_df['infekcie-za-mesiac']/(new_df['kraj_populace'] ),4)
    
-
-    #filter each quarter year and sort values
+    #filter each quarter year and sort values and plot rankinkgs for each quarter-year
     ranking4 = None
     quarter_year = 1
     for i in range(1,5):
@@ -124,7 +120,7 @@ def queryB(csvFileName):
         plotRanking(ranking,i)
 
 
-    # Bar Plot
+    # ranking 4 graph
     kraje = list(ranking4['kraj'].values) 
     x_indexes = np.arange(len(kraje))
     infections = list(ranking4['infekcie-za-4-stvrtrok'].values) 
@@ -132,49 +128,36 @@ def queryB(csvFileName):
     per_infections = list(ranking4['pocet_nakazenych_na_obyvatela'].values) 
     barWidth=0.3
 
-    
-    fig, ax = plt.subplots(figsize=(18, 7)) # set size frame
-    plt.plot(x_indexes , per_infections, color="grey", label="per-infections")
+    fig, ax = plt.subplots(figsize=(20, 8))
+    plt.yscale('log')
+    ax2 = ax.twinx()
+    ax2.plot(x_indexes, per_infections, 'g-', label='infekcie na jedneho obyvatela kraja')
+    ax.bar(x_indexes , populace, color="blue", width=barWidth, label="populace")
+    ax.bar(x_indexes + barWidth , infections, color="red", width=barWidth, label="infekce za 4. stvrtrok")
+    ax.set_ylabel('populace')
+    ax2.set_ylabel('infekcie na jedneho obyvatela kraja')
     ax.set_xticks(x_indexes + barWidth / 2)
     kraje = [ '\n'.join(wrap(l, 15)) for l in kraje ]
     ax.set_xticklabels(kraje)
-    plt.title("Pocet nakazenych na jedneho obyvatela za 4.stvrtrok 2021 v danom kraji.")
+
+    ax.legend(loc='upper left')
+    ax2.legend()
+    plt.title("Pocet nakazenych za 4.stvrtrok 2021 v danom kraji v porovnani s poctom obyvatelov kraja.")
     plt.xlabel("Kraje")
-    plt.ylabel("Pocet nakazenych na jedneho obyvatela")
-    filePath = os.path.join('img','line-4-stvrtrok.png')
-    plt.savefig(filePath, transparent=True,facecolor=fig.get_facecolor(), edgecolor='none')
-
-
-    fig, ax = plt.subplots(figsize=(20, 8)) # set size frame
-    # ts = ranking4['pocet_nakazenych_na_obyvatela']
-    # ts = ts.cumsum()
-    # ts.plot()
-
-
-    plt.bar(x_indexes , populace, color="blue", width=barWidth, label="populace")
-    plt.bar(x_indexes + barWidth , infections, color="red", width=barWidth, label="infekce za 1. stvrtrok")
-    
-    ax.set_xticks(x_indexes + barWidth / 2)
-    kraje = [ '\n'.join(wrap(l, 15)) for l in kraje ]
-    ax.set_xticklabels(kraje)
-    plt.legend()
-    plt.title("Pocet nakazenych za 1.stvrtrok 2021 v danom kraji v porovnani s poctom obyvatelov kraja.")
-    plt.xlabel("Kraje")
-    plt.ylabel("Populace")
     plt.tight_layout()
     filePath = os.path.join('img','graf-4-stvrtrok.png')
     plt.savefig(filePath, transparent=True,facecolor=fig.get_facecolor(), edgecolor='none')
 
 def plotRanking(ranking,n):
-    fig, ax = plt.subplots(figsize=(20, 5)) # set size frame
+    fig, ax = plt.subplots(figsize=(20, 5)) 
     fig.suptitle(str(n) +'. stvrtrok', fontsize=20)
-    ax.xaxis.set_visible(False)  # hide the x axis
-    ax.yaxis.set_visible(False)  # hide the y axis
-    ax.set_frame_on(False)  # no visible frame, uncomment if size is ok
+    ax.xaxis.set_visible(False)  
+    ax.yaxis.set_visible(False)  
+    ax.set_frame_on(False)  
     tabla = table(ax, ranking, loc='upper right', colWidths=[0.18]*len(ranking.columns))  # where df is your data frame
-    tabla.auto_set_font_size(False) # Activate set fontsize manually
-    tabla.set_fontsize(12) # if ++fontsize is necessary ++colWidths
-    tabla.scale(1.5, 1.5) # change size table
+    tabla.auto_set_font_size(False) 
+    tabla.set_fontsize(12) 
+    tabla.scale(1.5, 1.5) 
     filePath = os.path.join('img','rebricek-'+ str(n) +'-stvrtrok.png')
     plt.savefig(filePath, transparent=True,facecolor=fig.get_facecolor(), edgecolor='none')
 

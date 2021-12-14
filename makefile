@@ -1,9 +1,6 @@
 BIN=venv/bin/
 .ONESHELL:
 
-run:
-	$(BIN)python3 src/main.py
-
 install: install-mongodb install-python3 install-env
 
 install-mongodb:
@@ -19,7 +16,6 @@ install-python3:
 
 install-env:
 	( . venv/bin/activate; pip install -r requirements.txt; )
-
 
 run: init csv plot
 
