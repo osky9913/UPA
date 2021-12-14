@@ -17,7 +17,9 @@ install-python3:
 install-env:
 	( . venv/bin/activate; pip install -r requirements.txt; )
 
-run:
+run: init csv plot
+
+init:
 	$(BIN)python3 src/main.py
 
 csv:
