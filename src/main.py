@@ -4,7 +4,7 @@ from download.cache import covid_site, citizen_site
 from download.constants import CITIZEN_FILE_NAME
 from download.download import download
 from mongo.mongo import initialize_mongo, import_csv_data
-from mongo.queryA import initialize_query_A, export_A_csvs
+from mongo.queryA import initialize_query_A
 from mongo.queryB import initialize_query_B
 import os
 
