@@ -7,6 +7,9 @@ from pymongo.database import Database
 
 COLLECTION_NAME = "kraje_celkove"
 
+CSV_FOLDER_NAME = "queries_csv"
+DIAGRAMS_FOLDER_NAME = "img"
+
 nuts_codes = {
     "CZ010": "Hlavní město Praha",
     "CZ020": "Středočeský kraj",
@@ -111,7 +114,7 @@ def export_A_csvs(db: Database):
     # CSV for age distribution boxplot
     osoby_nakazeni = pandas.read_csv(os.path.join("data", "osoby.csv"))
     p = osoby_nakazeni.drop(osoby_nakazeni.columns[[1, 3, 5, 6, 7, 8]], axis=1)
-    p.to_csv(os.path.join("queries_csv", "queryA_1.csv"))
+    p.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"))
 
     # CSV for plotting vaccinated data
     osoby_ockovani = pandas.read_csv(os.path.join("data", "ockovani-zakladni-prehled.csv"))
@@ -185,11 +188,11 @@ def export_A_csvs(db: Database):
         "infected": infected,
         "vaccinated": vaccinated,
     })
-    df_2.to_csv(os.path.join("queries_csv", "query_comparision.csv"))
+    df_2.to_csv(os.path.join(CSV_FOLDER_NAME, "query_comparision.csv"))
 
 
 def plot_queries_A_boxplot():
-    persons = pandas.read_csv(os.path.join("queries_csv", "queryA_1.csv"))
+    persons = pandas.read_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"))
 
     fig = plt.figure(figsize=(13, 8))
     ax = fig.add_subplot(111)
@@ -209,11 +212,11 @@ def plot_queries_A_boxplot():
 
     plt.title("Rozložení věku nakažených osob v jednotlivých krajích ČR", fontweight='bold', fontsize=15)
 
-    plt.savefig(os.path.join("queries_plotted", "queryA_1.png"))
+    plt.savefig(os.path.join(DIAGRAMS_FOLDER_NAME, "queryA_1.png"))
 
 
 def plot_queries_A_vaccinations_1():
-    numbers = pandas.read_csv(os.path.join("queries_csv", "queryA_2.csv"))
+    numbers = pandas.read_csv(os.path.join(CSV_FOLDER_NAME, "queryA_2.csv"))
     data = np.array(list(numbers["vaccinated_total"]))
 
     barWidth = 0.5
@@ -228,11 +231,11 @@ def plot_queries_A_vaccinations_1():
 
     plt.title("Počty provedených očkování v jednotlivých krajích na základě pohlaví", fontweight='bold', fontsize=15)
 
-    plt.savefig(os.path.join("queries_plotted", "queryA_vaccinations_1.png"))
+    plt.savefig(os.path.join(DIAGRAMS_FOLDER_NAME, "queryA_vaccinations_1.png"))
 
 
 def plot_queries_A_vaccinations_2():
-    numbers = pandas.read_csv(os.path.join("queries_csv", "queryA_2.csv"))
+    numbers = pandas.read_csv(os.path.join(CSV_FOLDER_NAME, "queryA_2.csv"))
     data_men = np.array(list(numbers["vaccinated_men"]))
     data_women = np.array(list(numbers["vaccinated_woman"]))
 
@@ -251,11 +254,11 @@ def plot_queries_A_vaccinations_2():
     plt.title("Počty provedených očkování v jednotlivých krajích na základě pohlaví", fontweight='bold', fontsize=15)
     plt.legend()
 
-    plt.savefig(os.path.join("queries_plotted", "queryA_vaccinations_2.png"))
+    plt.savefig(os.path.join(DIAGRAMS_FOLDER_NAME, "queryA_vaccinations_2.png"))
 
 
 def plot_queries_A_vaccinations_3():
-    numbers = pandas.read_csv(os.path.join("queries_csv", "queryA_2.csv"))
+    numbers = pandas.read_csv(os.path.join(CSV_FOLDER_NAME, "queryA_2.csv"))
     data_men_0 = np.array(list(numbers["vaccinated_men_0"]))
     data_women_0 = np.array(list(numbers["vaccinated_woman_0"]))
     data_men_24 = np.array(list(numbers["vaccinated_men_24"]))
@@ -282,13 +285,13 @@ def plot_queries_A_vaccinations_3():
     plt.title("Počty provedených očkování v jednotlivých krajích na základě pohlaví a věku", fontweight='bold', fontsize=15)
     plt.legend()
 
-    plt.savefig(os.path.join("queries_plotted", "queryA_vaccinations_3.png"))
+    plt.savefig(os.path.join(DIAGRAMS_FOLDER_NAME, "queryA_vaccinations_3.png"))
 
 
 def plot_queries_comparision():
     def get_percentage(total, number):
         return (number / total) * 100
-    numbers = pandas.read_csv(os.path.join("queries_csv", "query_comparision.csv"))
+    numbers = pandas.read_csv(os.path.join(CSV_FOLDER_NAME, "query_comparision.csv"))
     percentage_vaccinated = []
     percentage_infected = []
     for i, row in numbers.iterrows():
@@ -313,4 +316,4 @@ def plot_queries_comparision():
     plt.title("Počty provedených očkování v jednotlivých krajích na základě pohlaví", fontweight='bold', fontsize=15)
     plt.legend()
 
-    plt.savefig(os.path.join("queries_plotted", "query_comparision.png"))
+    plt.savefig(os.path.join(DIAGRAMS_FOLDER_NAME, "query_comparision.png"))
