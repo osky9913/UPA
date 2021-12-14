@@ -20,6 +20,9 @@ install-env:
 run:
 	$(BIN)python3 src/main.py
 
+csv:
+	$(BIN)python3 src/extract.py
+
 plot:
 	$(BIN)python3 src/plot.py
 

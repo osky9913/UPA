@@ -27,17 +27,13 @@ def main():
     # initialize mongo
     db = initialize_mongo()
 
-    #print('Importing raw csv files...')
+    print('Importing raw csv files...')
     # import raw csv data
-    # import_csv_data(db)
+    import_csv_data(db)
     # initialize db for A query section
-    # initialize_query_A(db)
+    initialize_query_A(db)
     # initialize db for B query section
-    # initialize_query_B(db)
-    print("Exporting CSV files for A queries.")
-    export_A_csvs(db)
-
-    print("Export was succesfull, continue plotting with \"make plot\".")
+    initialize_query_B(db)
 
 
 if __name__ == "__main__":

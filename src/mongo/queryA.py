@@ -167,6 +167,26 @@ def export_A_csvs(db: Database):
     })
     df.to_csv(os.path.join("queries_csv", "queryA_2.csv"))
 
+    # CSV for infected/vaccinated comparision
+    ids = []
+    population = []
+    infected = []
+    vaccinated = []
+    col = db[COLLECTION_NAME]
+    for obj in col.find({}):
+        ids.append(obj["id"])
+        population.append(obj["pocet_obyvatel"])
+        infected.append(obj["celkovy_pocet_nakazenych"])
+        vaccinated.append(obj["celkovy_pocet_ockovanych"])
+
+    df_2 = pandas.DataFrame({
+        "id": ids,
+        "population": population,
+        "infected": infected,
+        "vaccinated": vaccinated,
+    })
+    df_2.to_csv(os.path.join("queries_csv", "query_comparision.csv"))
+
 
 def plot_queries_A_boxplot():
     persons = pandas.read_csv(os.path.join("queries_csv", "queryA_1.csv"))
@@ -263,3 +283,34 @@ def plot_queries_A_vaccinations_3():
     plt.legend()
 
     plt.savefig(os.path.join("queries_plotted", "queryA_vaccinations_3.png"))
+
+
+def plot_queries_comparision():
+    def get_percentage(total, number):
+        return (number / total) * 100
+    numbers = pandas.read_csv(os.path.join("queries_csv", "query_comparision.csv"))
+    percentage_vaccinated = []
+    percentage_infected = []
+    for i, row in numbers.iterrows():
+        percentage_vaccinated.append(get_percentage(row["population"], row["vaccinated"]))
+        percentage_infected.append(get_percentage(row["population"], row["infected"]))
+
+    data_v = np.array(percentage_vaccinated)
+    data_i = np.array(percentage_infected)
+
+    barWidth = 0.25
+    fig = plt.subplots(figsize=(15, 8))
+
+    br1 = np.arange(len(data_i))
+    br2 = [x + barWidth for x in br1]
+
+    plt.barh(br2, data_i, color='b', height=barWidth, edgecolor='grey', label='Muži')
+    plt.barh(br1, data_v, color='r', height=barWidth, edgecolor='grey', label='Ženy')
+
+    plt.xlabel('Počet očkovaných', fontweight='bold', fontsize=12)
+    plt.yticks([r + barWidth for r in range(len(data_i))], list(nuts_codes.values()))
+
+    plt.title("Počty provedených očkování v jednotlivých krajích na základě pohlaví", fontweight='bold', fontsize=15)
+    plt.legend()
+
+    plt.savefig(os.path.join("queries_plotted", "query_comparision.png"))
