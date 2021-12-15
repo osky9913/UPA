@@ -7,6 +7,7 @@ from mongo.mongo import initialize_mongo, import_csv_data
 from mongo.queryA import initialize_query_A
 from mongo.queryB import initialize_query_B
 import os
+from mongo.queryC import initialize_query_C
 
 
 def main():
@@ -27,14 +28,16 @@ def main():
     # initialize mongo
     db = initialize_mongo()
 
-    print('Importing raw csv files...')
+    # print('Importing raw csv files to MongoDB...')
 
-    # import raw csv data
+    # # import raw csv data
     import_csv_data(db)
-    # initialize db for A query section
+    # # initialize db for A query section
     initialize_query_A(db)
-    # initialize db for B query section
+    # # initialize db for B query section
     initialize_query_B(db)
+
+    initialize_query_C(db)
 
 
 if __name__ == "__main__":

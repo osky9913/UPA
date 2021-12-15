@@ -6,8 +6,7 @@ from pymongo.database import Database
 
 
 # array of csv files, which will be imported to mongodb
-#csv_collection_names = ["osoby", "ockovani-zakladni-prehled", "citizen"]
-csv_collection_names = ["citizen"]
+csv_collection_names = ["osoby", "ockovani-zakladni-prehled", "obce", "citizen", "ockovani-geografie"]
 
 
 def import_csv_data(db: Database):
@@ -16,10 +15,11 @@ def import_csv_data(db: Database):
     # if db contains collections, drop them
     if(list_of_col != 0):
         for col in list_of_col:
-            # db.drop_collection(col)
+            db.drop_collection(col)
             pass
 
     for col_name in csv_collection_names:
+        print("Importing " + col_name+".csv")
         # create collections
         mycol = db[col_name]
         # insert data
