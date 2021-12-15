@@ -15,7 +15,7 @@ def import_csv_data(db: Database):
     # if db contains collections, drop them
     if(list_of_col != 0):
         for col in list_of_col:
-            # db.drop_collection(col)
+            db.drop_collection(col)
             pass
 
     for col_name in csv_collection_names:

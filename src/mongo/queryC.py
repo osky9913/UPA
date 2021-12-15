@@ -8,8 +8,6 @@ from mongo.cities import OKRESY
 
 
 def initialize_query_C(db: Database):
-    osoby = pd.read_csv(os.path.join("data", "osoby.csv"))
-    collection_dt = pd.DataFrame()
 
     c = db["citizen"].find({})
     citizen_df = pd.DataFrame(c)
