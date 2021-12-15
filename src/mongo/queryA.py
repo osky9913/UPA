@@ -110,29 +110,6 @@ def initialize_query_A(db: Database):
 
 def export_A_csvs(db: Database):
 
-    c = db["citizen"].find({})
-    df = pandas.DataFrame(c)
-    population = df.query("casref_do == '2020-12-31' & (vuzemi_cis == 101 | (vuzemi_cis ==  100 & vuzemi_txt == 'Hlavní město Praha')) & vek_kod.isnull() & pohlavi_kod.isnull()")
-    o = population.drop(population.columns[[0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]], axis=1)
-    o = o.sort_values(by=["hodnota"], ascending=False)
-    cities = list(o["vuzemi_txt"])[:50]
-    population_to_15 = []
-    population_15_to_60 = []
-    population_over_60 = []
-    for city in cities:
-        population_to_15.append(df.query("vuzemi_txt == '" + city + "' & casref_do == '2020-12-31' & pohlavi_kod.isnull() & vek_kod <= 410010610015000")["hodnota"].sum())
-        population_15_to_60.append(df.query("vuzemi_txt == '" + city + "' & casref_do == '2020-12-31' & pohlavi_kod.isnull() & (vek_kod > 400000600005000 & vek_kod < 410060610065000)")["hodnota"].sum())
-        population_over_60.append(df.query("vuzemi_txt == '" + city + "' & casref_do == '2020-12-31' & pohlavi_kod.isnull() & vek_kod >= 410060610065000")["hodnota"].sum())
-
-    new = pandas.DataFrame({
-        "name": cities,
-        "obyvatele_do_15": population_to_15,
-        "obyvatele_15_do_60": population_15_to_60,
-        "obyvatele_nad_60": population_over_60,
-    })
-    new.to_csv(os.path.join(CSV_FOLDER_NAME, "cities.csv"), index=False)
-
-    return
     # CSV for age distribution boxplot
     c = db["osoby"].find({})
     df = pandas.DataFrame(c)
