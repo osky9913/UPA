@@ -71,8 +71,8 @@ def initialize_query_A(db: Database):
 
     # read the CSV files
     osoby_nakazeni = pandas.read_csv(os.path.join("data", "osoby.csv"))
-    osoby_ockovani = pandas.read_csv(os.path.join(
-        "data", "ockovani-zakladni-prehled.csv"))
+    osoby_ockovani = pandas.read_csv(os.path.join("data", "ockovani-zakladni-prehled.csv"))
+    ockovani = pandas.read_csv(os.path.join("data", "ockovani.csv"))
     obyvatelstvo = pandas.read_csv(os.path.join("data", "citizen.csv"))
 
     # get numbers of provinces
@@ -86,12 +86,10 @@ def initialize_query_A(db: Database):
         obj = {}
         obj["id"] = kraj
         obj["nazev_kraje"] = nuts_codes[kraj]
-        obj["pocet_obyvatel"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[kraj] +
-                                    " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
-        obj["celkovy_pocet_nakazenych"] = len(
-            osoby_nakazeni.query("kraj_nuts_kod=='" + kraj + "'"))
-        obj["celkovy_pocet_ockovanych"] = int(osoby_ockovani.query(
-            "kraj_nuts_kod == '" + kraj + "' & poradi_davky == 1")["pocet_davek"].sum())
+        obj["pocet_obyvatel"] = int(obyvatelstvo.query("vuzemi_kod==" + nuts_codes_citizen[kraj] + " & casref_do=='2020-12-31' & vek_kod.isnull() & pohlavi_kod.isnull()")["hodnota"].sum())
+        obj["celkovy_pocet_nakazenych"] = len(osoby_nakazeni.query("kraj_nuts_kod=='" + kraj + "'"))
+        obj["celkovy_pocet_ockovanych"] = int(ockovani.query("kraj_nuts_kod == '" + kraj + "' & vakcina == 'Vaccine Janssen'")["prvnich_davek"].sum()) + \
+            int(ockovani.query("kraj_nuts_kod == '" + kraj + "' & vakcina != 'Vaccine Janssen'")["druhych_davek"].sum())
         obj["vekove_skupiny"] = {}
         for skupina in vekove_skupiny:
             obj["vekove_skupiny"][skupina["nazev"]] = {
@@ -112,15 +110,16 @@ def initialize_query_A(db: Database):
 
 def export_A_csvs(db: Database):
     # CSV for age distribution boxplot
-    osoby_nakazeni = pandas.read_csv(os.path.join("data", "osoby.csv"))
-    p = osoby_nakazeni.drop(osoby_nakazeni.columns[[1, 3, 5, 6, 7, 8]], axis=1)
-    p.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"))
+    c = db["osoby"].find({})
+    df = pandas.DataFrame(c)
+    dff = df.drop(df.columns[[0, 2, 4, 6, 7, 8, 9]], axis=1)
+    dff.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"), index=False)
 
     # CSV for plotting vaccinated data
-    osoby_ockovani = pandas.read_csv(os.path.join("data", "ockovani-zakladni-prehled.csv"))
+    o = db["ockovani-zakladni-prehled"].find({})
+    osoby_ockovani = pandas.DataFrame(o)
 
     ids = []
-    names = []
     vaccinated_total = []
     vaccinated_man = []
     vaccinated_woman = []
@@ -132,13 +131,11 @@ def export_A_csvs(db: Database):
     vaccinated_woman_59_ = []
 
     for region in nuts_codes:
-        unique_persons = osoby_ockovani.query(
-            "kraj_nuts_kod == '" + region + "' & poradi_davky == 1")
+        unique_persons = osoby_ockovani.query("kraj_nuts_kod == '" + region + "' & ((vakcina == 'Vaccine Janssen' & poradi_davky == 1) | (vakcina != 'Vaccine Janssen' & poradi_davky == 2))")
         man = unique_persons.query("pohlavi == 'M'")
         woman = unique_persons.query("pohlavi == 'Z'")
 
         ids.append(region)
-        names.append(nuts_codes[region])
         vaccinated_total.append(int(unique_persons["pocet_davek"].sum()))
         vaccinated_man.append(int(man["pocet_davek"].sum()))
         vaccinated_woman.append(int(woman["pocet_davek"].sum()))
@@ -157,7 +154,6 @@ def export_A_csvs(db: Database):
 
     df = pandas.DataFrame({
         "id": ids,
-        "name": names,
         "vaccinated_total": vaccinated_total,
         "vaccinated_men": vaccinated_man,
         "vaccinated_woman": vaccinated_woman,
@@ -168,7 +164,7 @@ def export_A_csvs(db: Database):
         "vaccinated_woman_24": vaccinated_woman_24_59,
         "vaccinated_woman_59": vaccinated_woman_59_,
     })
-    df.to_csv(os.path.join("queries_csv", "queryA_2.csv"))
+    df.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_2.csv"), index=False)
 
     # CSV for infected/vaccinated comparision
     col = db[COLLECTION_NAME]
