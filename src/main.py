@@ -31,13 +31,14 @@ def main():
     # print('Importing raw csv files to MongoDB...')
 
     # # import raw csv data
-    # import_csv_data(db)
+    import_csv_data(db)
     # # initialize db for A query section
-    # initialize_query_A(db)
+    initialize_query_A(db)
     # # initialize db for B query section
-    # initialize_query_B(db)
+    initialize_query_B(db)
 
     initialize_query_C(db)
+
 
 if __name__ == "__main__":
     main()
