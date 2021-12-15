@@ -95,6 +95,12 @@ def initialize_query_C(db: Database):
             second += 3
             third += 3
 
+    # normalization
+    first_quarter = normalize(first_quarter)
+    second_quarter = normalize(second_quarter)
+    third_quarter = normalize(third_quarter)
+    fourth_quarter = normalize(fourth_quarter)
+
     new = pd.DataFrame({
         "name": cities,
         "1. stvtrok nakazeny": first_quarter,
@@ -112,3 +118,12 @@ def initialize_query_C(db: Database):
 
     filePath = os.path.join('queries_csv', 'queryC.csv')
     new.to_csv(filePath)
+
+
+def normalize(data):
+    min_h = min(data)
+    max_h = max(data)
+    new = []
+    for i in data:
+        new.append(((i - min_h)/(max_h - min_h)) * (1 - 0) + 0)
+    return new
