@@ -171,11 +171,11 @@ def export_A_csvs(db: Database):
     df.to_csv(os.path.join("queries_csv", "queryA_2.csv"))
 
     # CSV for infected/vaccinated comparision
+    col = db[COLLECTION_NAME]
     ids = []
     population = []
     infected = []
     vaccinated = []
-    col = db[COLLECTION_NAME]
     for obj in col.find({}):
         ids.append(obj["id"])
         population.append(obj["pocet_obyvatel"])
@@ -188,7 +188,7 @@ def export_A_csvs(db: Database):
         "infected": infected,
         "vaccinated": vaccinated,
     })
-    df_2.to_csv(os.path.join(CSV_FOLDER_NAME, "query_comparision.csv"))
+    df_2.to_csv(os.path.join(CSV_FOLDER_NAME, "query_comparision.csv"), index=False)
 
 
 def plot_queries_A_boxplot():
@@ -307,13 +307,13 @@ def plot_queries_comparision():
     br1 = np.arange(len(data_i))
     br2 = [x + barWidth for x in br1]
 
-    plt.barh(br2, data_i, color='b', height=barWidth, edgecolor='grey', label='Muži')
-    plt.barh(br1, data_v, color='r', height=barWidth, edgecolor='grey', label='Ženy')
+    plt.barh(br2, data_i, color='r', height=barWidth, edgecolor='grey', label='Prodělané onemocnění')
+    plt.barh(br1, data_v, color='g', height=barWidth, edgecolor='grey', label='Očkovaní')
 
-    plt.xlabel('Počet očkovaných', fontweight='bold', fontsize=12)
+    plt.xlabel('%', fontweight='bold', fontsize=12)
     plt.yticks([r + barWidth for r in range(len(data_i))], list(nuts_codes.values()))
 
-    plt.title("Počty provedených očkování v jednotlivých krajích na základě pohlaví", fontweight='bold', fontsize=15)
+    plt.title("Procentuální zastoupení očkovaných osob a osob s prodělaným onemocněním v jednotlivých krajích", fontweight='bold', fontsize=15)
     plt.legend()
 
     plt.savefig(os.path.join(DIAGRAMS_FOLDER_NAME, "query_comparision.png"))
