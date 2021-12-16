@@ -29,11 +29,13 @@ def main():
     # initialize mongo
     db = initialize_mongo()
     # print('Importing raw csv files to MongoDB...')
-    # # import raw csv data
+
+    # import raw csv data
+
     import_csv_data(db)
-    # # initialize db for A query section
+    # initialize db for A query section
     initialize_query_A(db)
-    # # initialize db for B query section
+    # initialize db for B query section
     initialize_query_B(db)
     initialize_query_C(db)
     initialize_query_own(db)

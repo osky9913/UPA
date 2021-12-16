@@ -5,7 +5,8 @@ from pandas.core.frame import DataFrame
 from mongo.mongo import import_collection
 from pymongo.database import Database
 from mongo.cities import OKRESY
-
+import matplotlib.pyplot as plt
+import numpy as np
 
 def initialize_query_C(db: Database):
 
@@ -96,11 +97,20 @@ def initialize_query_C(db: Database):
             third += 3
 
     # normalization
+    print("Data normalization...")
     first_quarter = normalize(first_quarter)
     second_quarter = normalize(second_quarter)
     third_quarter = normalize(third_quarter)
     fourth_quarter = normalize(fourth_quarter)
 
+    # discretization
+    print("Data discretization...")
+    population_over_60 = discretize(population_over_60)
+
+    # detection of outliers
+    print("Detection of outliers...")
+    interquartile_detection(population_to_15)
+    
     new = pd.DataFrame({
         "name": cities,
         "1. stvtrok nakazeny": first_quarter,
@@ -127,3 +137,44 @@ def normalize(data):
     for i in data:
         new.append(((i - min_h)/(max_h - min_h)) * (1 - 0) + 0)
     return new
+
+def get_category(value):
+
+    if 0 <= value <= 9999:
+        return 'A'
+    elif 10000 <= value <= 19999:
+        return 'B'
+    elif 20000 <= value <= 29999:
+        return 'C'
+    elif 30000 <= value <= 39999:
+        return 'D'
+    elif 40000 <= value <= 49999:
+        return 'E'
+    else:
+        return 'F'
+
+
+def discretize(data):
+    new = []
+    for i in data:
+        new.append(get_category(i))
+    return new
+
+def interquartile_detection(data):
+
+    name = 'obyvatele_do_15'
+    dt = pd.DataFrame({name:data})
+   
+    #compute quantiles
+    q1 = dt[name].quantile(0.25)
+    q3 = dt[name].quantile(0.75)
+    #compute iqr
+    iqr = q3 - q1
+    new = dt[np.logical_or(dt[name] < (q1 - 1.5*iqr),dt[name] > (q3 + 1.5*iqr))]
+    filePath = os.path.join('queries_csv', 'outliers.csv')
+    new.to_csv(filePath)
+   
+    # new = []
+    # for i in data:
+    #     new.append(get_category(i))
+    # return new
