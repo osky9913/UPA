@@ -30,7 +30,7 @@ def main():
 
     # print('Importing raw csv files to MongoDB...')
 
-    # # import raw csv data
+    # import raw csv data
     import_csv_data(db)
     # # initialize db for A query section
     initialize_query_A(db)
