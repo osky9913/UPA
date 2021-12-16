@@ -114,7 +114,11 @@ def export_A_csvs(db: Database):
     c = db["osoby"].find({})
     df = pandas.DataFrame(c)
     dff = df.drop(df.columns[[0, 2, 4, 6, 7, 8, 9]], axis=1)
-    dff.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"), index=False)
+    #dff.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"), index=False)
+    #print(dff)
+    a = dff.groupby(['vek','kraj_nuts_kod']).size().to_frame('size').reset_index()
+    #print(a)
+    a.to_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"), index=False)
 
     # CSV for plotting vaccinated data
     o = db["ockovani-zakladni-prehled"].find({})
@@ -190,7 +194,7 @@ def export_A_csvs(db: Database):
 
 def plot_queries_A_boxplot():
     persons = pandas.read_csv(os.path.join(CSV_FOLDER_NAME, "queryA_1.csv"))
-
+    persons = persons.loc[persons.index.repeat(persons['size'])]
     fig = plt.figure(figsize=(13, 8))
     ax = fig.add_subplot(111)
 
